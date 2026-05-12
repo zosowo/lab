@@ -1,0 +1,2234 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0F172A" />
+  <title>Victor Lab - 랜딩 페이지, 업무 자동화 외주</title>
+  <meta name="description" content="명확한 가격으로 한 번에 받는 외주. 랜딩 페이지 25만원부터, 업무 자동화 25만원부터. 추가 비용 없음, 결과물 1회 납품." />
+  <meta property="og:title" content="Victor Lab" />
+  <meta property="og:description" content="랜딩 페이지부터 업무 자동화까지 한 번에 해결해드립니다." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://lab.victor-jk.com/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:url" content="https://lab.victor-jk.com" />
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="apple-touch-icon" href="/favicon.svg" />
+  <link rel="mask-icon" href="/favicon.svg" color="#0F172A" />
+
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@twemoji/api@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard Variable', 'Pretendard', 'Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            mono: ['JetBrains Mono', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
+          },
+          animation: {
+            'fade-up': 'fadeUp 0.6s ease-out forwards',
+            'shine': 'shine 8s ease-in-out infinite',
+          },
+          keyframes: {
+            fadeUp: {
+              '0%': { opacity: '0', transform: 'translateY(12px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            shine: {
+              '0%, 100%': { transform: 'translateX(-100%) rotate(0deg)' },
+              '50%': { transform: 'translateX(100%) rotate(0deg)' },
+            },
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; -webkit-text-size-adjust: 100%; }
+    html.lenis, html.lenis body { height: auto; }
+    html.lenis { scroll-behavior: auto !important; }
+    .lenis.lenis-smooth { scroll-behavior: auto !important; }
+    .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+    .lenis.lenis-stopped { overflow: clip; }
+    body { font-family: 'Pretendard Variable', 'Pretendard', 'Inter', sans-serif; font-feature-settings: 'tnum'; overscroll-behavior-y: none; }
+
+    /* Selection */
+    ::selection { background: #78350F; color: #FFFAF0; }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 10px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: #E0C893; border-radius: 10px; border: 2px solid #FAF7F2; }
+    ::-webkit-scrollbar-thumb:hover { background: #C7A763; }
+
+    /* Hero luxury mesh background */
+    .grid-bg {
+      background:
+        radial-gradient(circle at 18% 8%, rgba(251, 191, 36, 0.30) 0%, transparent 42%),
+        radial-gradient(circle at 82% 18%, rgba(244, 114, 182, 0.16) 0%, transparent 48%),
+        radial-gradient(circle at 50% 92%, rgba(245, 158, 11, 0.14) 0%, transparent 55%),
+        linear-gradient(180deg, #FAF7F2 0%, #FFFAF0 100%);
+    }
+    .grid-bg::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 40% at 50% 110%, rgba(250, 247, 242, 0.6) 0%, transparent 70%),
+        repeating-linear-gradient(0deg, rgba(120, 53, 15, 0.025) 0px, rgba(120, 53, 15, 0.025) 1px, transparent 1px, transparent 80px),
+        repeating-linear-gradient(90deg, rgba(120, 53, 15, 0.025) 0px, rgba(120, 53, 15, 0.025) 1px, transparent 1px, transparent 80px);
+      pointer-events: none;
+    }
+
+    /* Reveal on scroll */
+    .reveal { opacity: 0; transform: translateY(36px); transition: opacity 1s cubic-bezier(0.22, 1, 0.36, 1), transform 1s cubic-bezier(0.22, 1, 0.36, 1); transition-delay: var(--reveal-delay, 0ms); will-change: opacity, transform; }
+    .reveal.in { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal { transition: none; opacity: 1; transform: none; }
+    }
+
+    /* Floating action buttons (Kakao + Top) */
+    #kakao-btn, #top-btn {
+      position: fixed; right: 18px;
+      width: 44px; height: 44px; border-radius: 9999px;
+      display: inline-flex; align-items: center; justify-content: center;
+      transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), bottom 0.45s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s ease, filter 0.25s ease;
+      z-index: 60;
+    }
+    #kakao-btn {
+      bottom: 18px;
+      background: #FEE500;
+      color: #181600;
+      box-shadow: 0 12px 28px -8px rgba(202, 168, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.5), inset 0 -1px 0 rgba(0, 0, 0, 0.08);
+    }
+    #kakao-btn.lifted { bottom: 74px; }
+    #kakao-btn:hover { box-shadow: 0 16px 36px -8px rgba(202, 168, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.55); filter: brightness(1.04); }
+    #kakao-btn:active { transform: translateY(1px); }
+    #top-btn {
+      bottom: 18px;
+      background: linear-gradient(135deg, #F59E0B 0%, #D97706 50%, #B45309 100%);
+      color: #FFFAF0;
+      box-shadow:
+        0 12px 28px -8px rgba(217, 119, 6, 0.55),
+        inset 0 1px 0 rgba(255, 250, 240, 0.25),
+        inset 0 -1px 0 rgba(120, 53, 15, 0.25);
+      opacity: 0; pointer-events: none; transform: translateY(8px);
+    }
+    #top-btn.show { opacity: 1; pointer-events: auto; transform: translateY(0); }
+    #top-btn:hover { box-shadow: 0 16px 36px -8px rgba(217, 119, 6, 0.7), inset 0 1px 0 rgba(255, 250, 240, 0.3), inset 0 -1px 0 rgba(120, 53, 15, 0.3); filter: brightness(1.05); }
+    #top-btn:active { transform: translateY(1px); }
+    @media (min-width: 640px) {
+      #kakao-btn { right: 28px; bottom: 28px; width: 48px; height: 48px; }
+      #kakao-btn.lifted { bottom: 88px; }
+      #top-btn { right: 28px; bottom: 28px; width: 48px; height: 48px; }
+    }
+
+    /* Card hover - luxury gold glow */
+    .card-hover { transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease; }
+    .card-hover:hover { transform: translateY(-3px); box-shadow: 0 20px 48px -16px rgba(180, 83, 9, 0.28), 0 0 0 1px rgba(245, 158, 11, 0.18); border-color: rgba(245, 158, 11, 0.4); }
+
+    /* FAQ smooth */
+    details > summary { list-style: none; }
+    details > summary::-webkit-details-marker { display: none; }
+    details[open] .faq-icon { transform: rotate(45deg); }
+    .faq-icon { transition: transform 0.25s ease; }
+    details .faq-content { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.3s ease; }
+    details[open] .faq-content { grid-template-rows: 1fr; }
+    .faq-content > div { overflow: hidden; }
+
+    /* Marquee badge animation */
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.85); }
+    }
+    .pulse-dot { animation: pulse-dot 2s ease-in-out infinite; }
+
+    /* Sample chart bar grow */
+    @keyframes barGrow { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+    .bar { transform-origin: bottom; animation: barGrow 1s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
+    /* AURA thumbnail - sound bars */
+    @keyframes th-wave { 0%,100% { height:2px; } 50% { height:8px; } }
+    .th-bar { animation: th-wave 1.4s ease-in-out infinite; }
+    /* AURA thumbnail - breathing ring */
+    @keyframes th-breathe { 0%,100% { transform:scale(1); opacity:.6; } 50% { transform:scale(1.12); opacity:1; } }
+    .th-ring { animation: th-breathe 4s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+
+    /* Mobile menu */
+    #mobile-menu { transition: opacity 0.2s ease, transform 0.2s ease; }
+    #mobile-menu.hidden { opacity: 0; transform: translateY(-8px); pointer-events: none; }
+
+    /* Luxury gold gradient text */
+    .gradient-text {
+      background: linear-gradient(135deg, #78350F 0%, #B45309 35%, #D97706 65%, #F59E0B 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Luxury gold CTA button */
+    .gold-cta {
+      background: linear-gradient(135deg, #F59E0B 0%, #D97706 50%, #B45309 100%);
+      color: #FFFAF0;
+      box-shadow:
+        0 10px 28px -8px rgba(217, 119, 6, 0.55),
+        inset 0 1px 0 rgba(255, 250, 240, 0.25),
+        inset 0 -1px 0 rgba(120, 53, 15, 0.25);
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, filter 0.25s ease;
+    }
+    .gold-cta:hover {
+      transform: translateY(-1px);
+      box-shadow:
+        0 16px 36px -8px rgba(217, 119, 6, 0.7),
+        inset 0 1px 0 rgba(255, 250, 240, 0.3),
+        inset 0 -1px 0 rgba(120, 53, 15, 0.3);
+      filter: brightness(1.04);
+    }
+
+    /* Glass card */
+    .glass-card {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(255, 250, 240, 0.78) 100%);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(245, 158, 11, 0.18);
+    }
+
+    /* Luxury dark gradient surface */
+    .luxury-dark {
+      background:
+        radial-gradient(circle at 20% 0%, rgba(245, 158, 11, 0.18) 0%, transparent 50%),
+        radial-gradient(circle at 80% 100%, rgba(180, 83, 9, 0.18) 0%, transparent 55%),
+        linear-gradient(135deg, #1C1917 0%, #292524 50%, #1F1611 100%);
+      border: 1px solid rgba(245, 158, 11, 0.22);
+      box-shadow:
+        0 32px 80px -24px rgba(0, 0, 0, 0.6),
+        inset 0 1px 0 rgba(245, 158, 11, 0.12);
+    }
+
+    /* Soft gold glow accent */
+    .gold-glow { position: relative; }
+    .gold-glow::after {
+      content: '';
+      position: absolute;
+      inset: -28px;
+      background: radial-gradient(circle, rgba(245, 158, 11, 0.20), transparent 65%);
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    /* Hairline divider */
+    .luxury-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent 0%, rgba(180, 83, 9, 0.25) 50%, transparent 100%);
+    }
+
+    /* Twemoji inline sizing */
+    img.emoji {
+      height: 1em;
+      width: 1em;
+      margin: 0 0.05em 0 0.1em;
+      vertical-align: -0.12em;
+      display: inline-block;
+    }
+
+    /* Greeting typing cursor */
+    .greeting-cursor {
+      display: inline-block;
+      margin-left: 1px;
+      color: #B45309;
+      font-weight: 700;
+      animation: greetingBlink 1.05s steps(2, start) infinite;
+    }
+    @keyframes greetingBlink {
+      to { opacity: 0; }
+    }
+
+  </style>
+</head>
+<body class="bg-[#FAF7F2] text-slate-900 antialiased overflow-x-hidden">
+
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-white/75 backdrop-blur-md border-b border-amber-200/40/80">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2 font-semibold text-slate-900 group">
+        <span class="relative flex items-center justify-center w-7 h-7 rounded-md gold-cta group-hover:scale-105 transition">
+          <span class="relative text-[12px] font-bold tracking-tighter">V</span>
+        </span>
+        <span class="text-[15px]">Victor Lab</span>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-7 text-[15px] font-medium text-slate-800">
+        <a href="#services" class="hover:text-amber-600 transition">서비스</a>
+        <a href="#portfolio" class="hover:text-amber-600 transition">샘플</a>
+        <a href="#pricing" class="hover:text-amber-600 transition">가격</a>
+        <a href="#process" class="hover:text-amber-600 transition">진행</a>
+        <a href="#faq" class="hover:text-amber-600 transition">FAQ</a>
+        <a href="#contact" class="hover:text-amber-600 transition">문의</a>
+      </nav>
+
+      <div class="flex items-center gap-2">
+        <a href="#contact" class="hidden sm:inline-flex items-center gap-1.5 text-sm gold-cta px-3.5 py-2 rounded-lg font-medium group">
+          의뢰하기
+          <svg class="w-3.5 h-3.5 group-hover:translate-x-0.5 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        </a>
+        <button id="menu-btn" class="md:hidden p-2 -mr-2 rounded-md hover:bg-slate-100 transition" aria-label="메뉴">
+          <svg id="menu-icon" class="w-5 h-5 text-slate-800" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden md:hidden border-t border-slate-200 bg-white">
+      <nav class="px-4 py-3 flex flex-col gap-1 text-[15px] font-medium">
+        <a href="#services" class="py-2 text-slate-800 hover:text-amber-600 transition">서비스</a>
+        <a href="#portfolio" class="py-2 text-slate-800 hover:text-amber-600 transition">샘플</a>
+        <a href="#pricing" class="py-2 text-slate-800 hover:text-amber-600 transition">가격</a>
+        <a href="#process" class="py-2 text-slate-800 hover:text-amber-600 transition">진행 방식</a>
+        <a href="#faq" class="py-2 text-slate-800 hover:text-amber-600 transition">FAQ</a>
+        <a href="#contact" class="py-2 text-slate-800 hover:text-amber-600 transition">문의</a>
+        <a href="#contact" class="mt-2 inline-flex items-center justify-center gap-1.5 gold-cta py-2.5 rounded-lg font-medium">의뢰하기 →</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="relative grid-bg overflow-hidden border-b border-amber-200/40">
+    <div class="relative max-w-6xl mx-auto px-4 sm:px-6 pt-8 sm:pt-14 md:pt-20 pb-10 sm:pb-14 md:pb-16">
+      <div class="reveal">
+        <div class="inline-flex items-center gap-2 text-[13px] font-medium text-amber-900 bg-white/85 backdrop-blur border border-amber-200 px-3.5 py-1.5 rounded-full mb-7 shadow-sm shadow-amber-900/10 min-h-[34px]">
+          <span class="relative flex w-2 h-2">
+            <span class="absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75 pulse-dot"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
+          </span>
+          <span id="greeting-text" aria-live="polite"></span><span class="greeting-cursor" aria-hidden="true">|</span>
+        </div>
+      </div>
+
+      <h1 class="reveal text-[34px] leading-[1.1] sm:text-[48px] md:text-[60px] lg:text-[72px] sm:leading-[1.05] font-bold tracking-tight mb-5 sm:mb-6 max-w-4xl">
+        랜딩 페이지부터<br/>업무 자동화까지 <span class="gradient-text">한 번에</span>
+      </h1>
+
+      <p class="reveal text-[15px] sm:text-lg md:text-xl text-slate-800 max-w-2xl mb-8 sm:mb-10 leading-relaxed">
+        ☕ 카페를 창업하셨나요? 메뉴, 위치, 예약을 <strong class="text-slate-900 font-semibold">한 페이지에 담아 드립니다.</strong><br/>
+        ⏱️ 매일 반복되는 일이 시간을 빼앗고 있나요? <strong class="text-slate-900 font-semibold">딸깍! 자동화해 드립니다.</strong>
+      </p>
+
+      <!-- 백업: 말풍선 + 카테고리 모킹 박스. 복원 시 _backup_hero_blocks.html에서 두 블록 가져와 이 위치에 삽입 -->
+
+      <div class="reveal flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-3">
+        <a href="#contact" class="inline-flex items-center gap-2 gold-cta px-5 sm:px-6 py-3 rounded-lg font-medium group">
+          의뢰하기
+          <svg class="w-4 h-4 group-hover:translate-x-0.5 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        </a>
+        <a href="#portfolio" class="inline-flex items-center gap-2 bg-white/80 backdrop-blur hover:bg-amber-50 border border-amber-300 hover:border-amber-500 text-amber-800 hover:text-amber-900 px-5 sm:px-6 py-3 rounded-lg font-medium transition shadow-sm">
+          🗂️ 샘플 보기
+        </a>
+        <a href="#pricing" class="inline-flex items-center gap-2 bg-white/80 backdrop-blur hover:bg-amber-50 border border-amber-300 hover:border-amber-500 text-amber-800 hover:text-amber-900 px-5 sm:px-6 py-3 rounded-lg font-medium transition shadow-sm">
+          🏷️ 가격 안내
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="pt-8 sm:pt-10 md:pt-14 pb-16 sm:pb-20 md:pb-28 border-b border-amber-200/40">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="reveal mb-10 md:mb-12 max-w-2xl">
+        <div class="text-xs sm:text-sm font-semibold text-amber-700 uppercase tracking-widest mb-3">SERVICES</div>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-4 gradient-text">제작 서비스</h2>
+        <p class="text-slate-800 leading-relaxed"><strong class="text-slate-900 font-semibold">"한 페이지로 사업 알리기"</strong>, <strong class="text-slate-900 font-semibold">"반복되는 일 자동화"</strong> 모두 가능합니다.</p>
+      </div>
+
+      <!-- Track 1: Landing Page -->
+      <div class="reveal mb-3 flex items-baseline gap-3">
+        <h3 class="flex items-baseline gap-2.5">
+          <span class="font-mono text-base sm:text-lg lg:text-xl font-semibold text-amber-600">01.</span>
+          <span class="text-xl sm:text-2xl lg:text-3xl font-bold tracking-tight gradient-text">랜딩 페이지</span>
+        </h3>
+        <div class="flex-1 h-0.5 bg-gradient-to-r from-amber-300/80 via-amber-200/40 to-transparent rounded-full"></div>
+      </div>
+      <p class="reveal text-sm sm:text-base text-stone-700 mb-6 sm:mb-7 max-w-xl leading-relaxed">
+        사업의 첫인상을 한 페이지로 만들어 드립니다.
+      </p>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6 mb-14 sm:mb-16">
+        <!-- L01 -->
+        <article class="reveal card-hover bg-gradient-to-br from-white via-white to-amber-50/30 border border-amber-200/60 rounded-xl p-6 relative overflow-hidden shadow-lg shadow-amber-900/10">
+          <div class="absolute top-5 right-5 text-[10px] font-mono font-semibold text-amber-700/70 bg-amber-50/80 backdrop-blur-sm px-2 py-0.5 rounded-md ring-1 ring-amber-200/50 tracking-wider">L01</div>
+          <div class="w-12 h-12 bg-gradient-to-br from-amber-50 via-orange-50/60 to-amber-100/40 ring-1 ring-amber-200/60 rounded-xl flex items-center justify-center mb-5 shadow-sm shadow-amber-900/10">
+            <svg class="w-6 h-6 text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="12" r="2.5"/><path d="M5 17.5c0-1.5 1.8-2.5 4-2.5s4 1 4 2.5"/><path d="M15 10h4M15 13h3"/></svg>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">소개 사이트</h3>
+          <p class="text-sm text-slate-800 leading-relaxed">프리랜서, 강사, 컨설턴트님의 명함 사이트입니다. 모바일 완벽 호환되며 카톡/전화 연결 가능합니다.</p>
+        </article>
+
+        <!-- L02 -->
+        <article class="reveal card-hover bg-gradient-to-br from-white via-white to-amber-50/30 border border-amber-200/60 rounded-xl p-6 relative overflow-hidden shadow-lg shadow-amber-900/10">
+          <div class="absolute top-5 right-5 text-[10px] font-mono font-semibold text-amber-700/70 bg-amber-50/80 backdrop-blur-sm px-2 py-0.5 rounded-md ring-1 ring-amber-200/50 tracking-wider">L02</div>
+          <div class="w-12 h-12 bg-gradient-to-br from-amber-50 via-orange-50/60 to-amber-100/40 ring-1 ring-amber-200/60 rounded-xl flex items-center justify-center mb-5 shadow-sm shadow-amber-900/10">
+            <svg class="w-6 h-6 text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l2-5h14l2 5"/><path d="M3 9v11h18V9"/><path d="M3 9h18"/><path d="M9 20v-5h6v5"/></svg>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">소상공인 매장 사이트</h3>
+          <p class="text-sm text-slate-800 leading-relaxed">학원, 카페, 공방의 메뉴와 오시는 길, 예약폼까지! 손님이 찾아야 할 모든 정보를 한 페이지에 담아드립니다.</p>
+        </article>
+
+        <!-- L03 -->
+        <article class="reveal card-hover bg-gradient-to-br from-white via-white to-amber-50/30 border border-amber-200/60 rounded-xl p-6 relative overflow-hidden shadow-lg shadow-amber-900/10">
+          <div class="absolute top-5 right-5 text-[10px] font-mono font-semibold text-amber-700/70 bg-amber-50/80 backdrop-blur-sm px-2 py-0.5 rounded-md ring-1 ring-amber-200/50 tracking-wider">L03</div>
+          <div class="w-12 h-12 bg-gradient-to-br from-amber-50 via-orange-50/60 to-amber-100/40 ring-1 ring-amber-200/60 rounded-xl flex items-center justify-center mb-5 shadow-sm shadow-amber-900/10">
+            <svg class="w-6 h-6 text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M3 20v-1a6 6 0 0112 0v1"/><path d="M17 8h5M19.5 5.5v5"/></svg>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">사전 등록 및 모집 사이트</h3>
+          <p class="text-sm text-slate-800 leading-relaxed">이벤트, 세미나, 상품 출시 전 사전 등록과 홍보를 해보세요. 사전 예약, 텔레그램, 메일 자동 알림으로 관리해드립니다.</p>
+        </article>
+      </div>
+
+      <!-- Track 2: Data Automation -->
+      <div class="reveal mb-3 flex items-baseline gap-3">
+        <h3 class="flex items-baseline gap-2.5">
+          <span class="font-mono text-base sm:text-lg lg:text-xl font-semibold text-amber-600">02.</span>
+          <span class="text-xl sm:text-2xl lg:text-3xl font-bold tracking-tight gradient-text">업무 자동화</span>
+        </h3>
+        <div class="flex-1 h-0.5 bg-gradient-to-r from-amber-300/80 via-amber-200/40 to-transparent rounded-full"></div>
+      </div>
+      <p class="reveal text-sm sm:text-base text-stone-700 mb-6 sm:mb-7 max-w-xl leading-relaxed">
+        매달 반복되는 일, 손에서 놓으세요.
+      </p>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6">
+        <!-- D01 -->
+        <article class="reveal card-hover bg-gradient-to-br from-white via-white to-amber-50/30 border border-amber-200/60 rounded-xl p-6 relative overflow-hidden shadow-lg shadow-amber-900/10">
+          <div class="absolute top-5 right-5 text-[10px] font-mono font-semibold text-amber-700/70 bg-amber-50/80 backdrop-blur-sm px-2 py-0.5 rounded-md ring-1 ring-amber-200/50 tracking-wider">D01</div>
+          <div class="w-12 h-12 bg-gradient-to-br from-amber-50 via-orange-50/60 to-amber-100/40 ring-1 ring-amber-200/60 rounded-xl flex items-center justify-center mb-5 shadow-sm shadow-amber-900/10">
+            <svg class="w-6 h-6 text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 11-3.5-7.1"/><path d="M21 4v5h-5"/><path d="M3 12a9 9 0 003.5 7.1"/><path d="M3 20v-5h5"/></svg>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">반복업무 자동화</h3>
+          <p class="text-sm text-slate-800 leading-relaxed">매일 반복되는 영수증, 송장, 주문 정리 등을 모두 자동화해 드립니다. 엑셀 매크로 등 일회성 실행 도구로 수작업을 제거해 보세요.</p>
+        </article>
+
+        <!-- D02 -->
+        <article class="reveal card-hover bg-gradient-to-br from-white via-white to-amber-50/30 border border-amber-200/60 rounded-xl p-6 relative overflow-hidden shadow-lg shadow-amber-900/10">
+          <div class="absolute top-5 right-5 text-[10px] font-mono font-semibold text-amber-700/70 bg-amber-50/80 backdrop-blur-sm px-2 py-0.5 rounded-md ring-1 ring-amber-200/50 tracking-wider">D02</div>
+          <div class="w-12 h-12 bg-gradient-to-br from-amber-50 via-orange-50/60 to-amber-100/40 ring-1 ring-amber-200/60 rounded-xl flex items-center justify-center mb-5 shadow-sm shadow-amber-900/10">
+            <svg class="w-6 h-6 text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0112 0c0 6 2.5 8 2.5 8h-17S6 14 6 8z"/><path d="M10 20a2 2 0 004 0"/></svg>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">정기 모니터링 알림</h3>
+          <p class="text-sm text-slate-800 leading-relaxed">관심 키워드, 종목, 입찰 공고를 자동으로 감시하고 조건에 맞는 소식만 텔레그램으로 받아 한 발 앞선 기회를 잡으세요.</p>
+        </article>
+
+        <!-- D03 -->
+        <article class="reveal card-hover bg-gradient-to-br from-white via-white to-amber-50/30 border border-amber-200/60 rounded-xl p-6 relative overflow-hidden shadow-lg shadow-amber-900/10">
+          <div class="absolute top-5 right-5 text-[10px] font-mono font-semibold text-amber-700/70 bg-amber-50/80 backdrop-blur-sm px-2 py-0.5 rounded-md ring-1 ring-amber-200/50 tracking-wider">D03</div>
+          <div class="w-12 h-12 bg-gradient-to-br from-amber-50 via-orange-50/60 to-amber-100/40 ring-1 ring-amber-200/60 rounded-xl flex items-center justify-center mb-5 shadow-sm shadow-amber-900/10">
+            <svg class="w-6 h-6 text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">크롤링·모니터링</h3>
+          <p class="text-sm text-slate-800 leading-relaxed">원하는 사이트를 주기적으로 감시하고 조건에 맞는 데이터를 실시간으로 텔레그램 등으로 알려드립니다.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio -->
+  <section id="portfolio" class="py-16 sm:py-20 md:py-28 border-b border-amber-200/50 bg-gradient-to-b from-white to-[#FFFAF0]">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="reveal mb-12 md:mb-14 max-w-2xl">
+        <div class="text-xs sm:text-sm font-semibold text-amber-700 uppercase tracking-widest mb-3">SAMPLES</div>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-4 gradient-text">샘플 작업물</h2>
+        <p class="text-slate-800 leading-relaxed">
+          랜딩 페이지 및 업무 자동화 샘플입니다. 의뢰 시 받으실 결과물 형태와 품질을 참고하세요.
+        </p>
+      </div>
+
+      <!-- Landing samples -->
+      <div class="reveal mb-4 flex items-center gap-3">
+        <span class="inline-flex items-center gap-2 text-xs font-semibold text-slate-800 bg-slate-100 px-3 py-1.5 rounded-full">
+          <span class="w-1.5 h-1.5 bg-amber-600 rounded-full"></span>
+          랜딩 페이지 샘플
+        </span>
+        <div class="flex-1 h-px bg-slate-200"></div>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-4 sm:gap-5 mb-10">
+
+        <!-- LP Sample 0a: ORBIN (Enterprise AI) -->
+        <article class="reveal card-hover border border-slate-200 rounded-xl overflow-hidden bg-white">
+          <a id="orbin-thumb-wrap" href="/orbin" target="_blank" rel="noopener" class="block aspect-[4/3] relative overflow-hidden border-b border-slate-200" style="background:#07142A;">
+            <div id="orbin-thumb-content" style="position:absolute;top:0;left:0;width:400px;height:300px;transform-origin:top left;overflow:hidden;font-family:'Pretendard Variable','Pretendard',system-ui,sans-serif;">
+
+              <!-- Hero glow -->
+              <div style="position:absolute;inset:0;background:radial-gradient(380px 220px at 78% 30%, rgba(201,169,97,0.24) 0%, rgba(201,169,97,0) 60%), radial-gradient(260px 200px at 14% 80%, rgba(201,169,97,0.14) 0%, rgba(201,169,97,0) 60%), linear-gradient(180deg, #07142A 0%, #0C1F40 100%);"></div>
+
+              <!-- Subtle starfield -->
+              <div style="position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,0.45) 1px, transparent 1px), radial-gradient(rgba(230,208,152,0.42) 1px, transparent 1px);background-size:60px 60px, 110px 110px;background-position:0 0, 30px 40px;opacity:.32;-webkit-mask-image:radial-gradient(ellipse at 70% 30%, #000 30%, transparent 75%);mask-image:radial-gradient(ellipse at 70% 30%, #000 30%, transparent 75%);"></div>
+
+              <!-- Top strap -->
+              <div style="position:absolute;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:11px 18px;border-bottom:1px solid rgba(248,246,241,0.08);">
+                <div style="display:flex;align-items:center;gap:7px;">
+                  <svg width="14" height="14" viewBox="0 0 32 32" aria-hidden="true">
+                    <rect width="32" height="32" rx="6" fill="#0C1F40"/>
+                    <circle cx="16" cy="16" r="9" fill="none" stroke="#F8F6F1" stroke-width="1.6"/>
+                    <circle cx="23.2" cy="9.6" r="2.4" fill="#C9A961"/>
+                  </svg>
+                  <span style="font-size:14px;color:#F8F6F1;letter-spacing:0.02em;font-weight:700;">ORBIN</span>
+                  <span style="font-size:7.5px;letter-spacing:0.20em;color:rgba(248,246,241,0.45);text-transform:uppercase;margin-left:4px;font-weight:500;">Enterprise AI</span>
+                </div>
+                <span style="font-size:7.5px;letter-spacing:0.20em;color:rgba(230,208,152,0.85);text-transform:uppercase;font-weight:600;">SOC 2 &nbsp; ISO 27001</span>
+              </div>
+
+              <!-- Center meta tag -->
+              <div style="position:absolute;top:46px;left:18px;display:flex;align-items:center;gap:8px;">
+                <span style="width:20px;height:1px;background:rgba(201,169,97,0.7);display:inline-block;"></span>
+                <span style="font-size:7.5px;letter-spacing:0.22em;color:rgba(248,246,241,0.60);text-transform:uppercase;font-weight:500;">For Regulated Enterprises &nbsp; Est. 2022</span>
+              </div>
+
+              <!-- Hero text -->
+              <div style="position:absolute;bottom:60px;left:18px;right:18px;">
+                <p style="font-size:46px;line-height:1.06;letter-spacing:-0.025em;color:#F8F6F1;font-weight:700;margin:0;">
+                  Enterprise<br/>
+                  <span style="font-weight:700;color:#E6D098;">intelligence</span><br/>
+                  that decides.
+                </p>
+              </div>
+
+              <!-- Bottom strap with CTA + ticker -->
+              <div style="position:absolute;bottom:14px;left:18px;display:flex;align-items:center;gap:8px;">
+                <div style="background:linear-gradient(180deg,#D5B872 0%,#C9A961 100%);color:#07142A;padding:5px 11px;font-size:8px;letter-spacing:0.16em;text-transform:uppercase;font-weight:700;border-radius:1px;">Request Demo →</div>
+              </div>
+              <div style="position:absolute;bottom:14px;right:18px;display:flex;align-items:center;gap:10px;font-size:7.5px;letter-spacing:0.20em;color:rgba(248,246,241,0.58);text-transform:uppercase;font-weight:500;">
+                <span><span style="color:#E6D098;font-weight:700;">$2.8T</span> analyzed</span>
+                <span style="color:#C9A961;opacity:.55;">◆</span>
+                <span><span style="color:#E6D098;font-weight:700;">99.97%</span> audit</span>
+              </div>
+
+            </div><!-- /orbin-thumb-content -->
+          </a>
+          <div class="p-5">
+            <div class="flex items-center gap-1.5 text-[10px] font-medium text-stone-700 mb-2 flex-wrap">
+              <span class="px-2 py-0.5 rounded" style="background:#0C1F40;color:#E6D098;">엔터프라이즈 AI</span>
+              <span class="px-2 py-0.5 bg-slate-100 rounded">Pretendard 단일</span>
+              <span class="px-2 py-0.5 bg-slate-100 rounded">네이비 + 샴페인 골드</span>
+              <span class="px-2 py-0.5 bg-stone-200 text-stone-700 rounded">가상</span>
+            </div>
+            <h3 class="font-semibold text-slate-900 mb-1">랜딩 페이지 - ORBIN 규제산업용 AI 에이전트 플랫폼</h3>
+            <p class="text-sm text-slate-800 leading-relaxed mb-3">다크 히어로 + 라이브 콘솔 데모, 14개사 로고 클라우드, count-up 메트릭 4종, 3단계 도입 프로세스, 2개 케이스 스터디, 컴플라이언스 벨트, 프라이빗 데모 CTA가 포함되었습니다.</p>
+            <div class="flex items-center justify-between text-xs">
+              <a href="/orbin" target="_blank" rel="noopener" class="inline-flex items-center gap-1 font-medium hover:underline" style="color:#B08F44;">
+                라이브 보기
+                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- LP Sample 0: Studio OKUM -->
+        <article class="reveal card-hover border border-slate-200 rounded-xl overflow-hidden bg-white">
+          <a id="okum-thumb-wrap" href="/okum" target="_blank" rel="noopener" class="block aspect-[4/3] relative overflow-hidden border-b border-stone-200" style="background:#0A0A0A;">
+            <div id="okum-thumb-content" style="position:absolute;top:0;left:0;width:400px;height:300px;transform-origin:top left;overflow:hidden;">
+
+              <!-- hero-bg base radial -->
+              <div style="position:absolute;inset:0;background:radial-gradient(ellipse 100% 70% at 50% 100%, rgba(0,0,0,0.7) 0%, transparent 65%), radial-gradient(ellipse 120% 100% at 50% 50%, #181818 0%, #080808 75%);"></div>
+
+              <!-- hero-light-1 (orange, top-left) -->
+              <div style="position:absolute;top:-10%;left:-10%;width:70%;height:70%;border-radius:50%;mix-blend-mode:screen;filter:blur(50px);background:radial-gradient(circle, rgba(232,134,11,0.32) 0%, transparent 65%);"></div>
+
+              <!-- hero-light-2 (yellow, bottom-right) -->
+              <div style="position:absolute;bottom:-20%;right:-15%;width:60%;height:60%;border-radius:50%;mix-blend-mode:screen;filter:blur(45px);background:radial-gradient(circle, rgba(255,168,54,0.18) 0%, transparent 65%);"></div>
+
+              <!-- hero-light-3 (purple, mid) -->
+              <div style="position:absolute;top:30%;left:35%;width:50%;height:50%;border-radius:50%;mix-blend-mode:screen;filter:blur(45px);background:radial-gradient(circle, rgba(140,80,200,0.07) 0%, transparent 65%);"></div>
+
+              <!-- subtle grid overlay -->
+              <div style="position:absolute;inset:0;mix-blend-mode:overlay;background:repeating-linear-gradient(0deg, rgba(245,242,235,0.012) 0 1px, transparent 1px 48px), repeating-linear-gradient(90deg, rgba(245,242,235,0.012) 0 1px, transparent 1px 48px);"></div>
+
+              <!-- film grain -->
+              <div style="position:absolute;inset:0;opacity:0.06;mix-blend-mode:overlay;background-image:url(&quot;data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E&quot;);"></div>
+
+              <!-- top-left meta -->
+              <div style="position:absolute;top:18px;left:20px;display:flex;align-items:center;gap:8px;">
+                <span style="width:6px;height:6px;border-radius:50%;background:#E8860B;box-shadow:0 0 12px rgba(232,134,11,0.85);"></span>
+                <span style="font-family:'Space Grotesk',sans-serif;font-size:9px;letter-spacing:0.28em;color:rgba(245,242,235,0.85);font-weight:500;text-transform:uppercase;">Studio OKUM · Film</span>
+              </div>
+
+              <!-- top-right meta -->
+              <div style="position:absolute;top:18px;right:20px;font-family:'Space Grotesk',sans-serif;font-size:9px;letter-spacing:0.22em;color:rgba(245,242,235,0.5);text-transform:uppercase;font-weight:500;">Reel '26</div>
+
+              <!-- logo + brand name centered -->
+              <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 24px;">
+                <img src="/okum/logo.png" alt="Studio OKUM 로고" width="220" height="174" style="width:140px;height:auto;display:block;filter:brightness(1.15) contrast(1.05);margin-bottom:8px;" />
+                <p style="font-family:'Space Grotesk',system-ui,sans-serif;font-size:26px;font-weight:700;line-height:1;letter-spacing:-0.03em;color:#F5F2EB;margin:0;">Studio OKUM</p>
+              </div>
+
+              <!-- bottom-left categories -->
+              <div style="position:absolute;bottom:18px;left:20px;right:108px;font-family:'Space Grotesk',sans-serif;font-size:8px;letter-spacing:0.22em;color:rgba(245,242,235,0.55);text-transform:uppercase;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">YouTube · Music · AD · Broadcast · Wedding</div>
+
+              <!-- bottom-right CTA -->
+              <div style="position:absolute;bottom:18px;right:20px;font-family:'Space Grotesk',sans-serif;font-size:9px;letter-spacing:0.24em;color:#FFA836;text-transform:uppercase;font-weight:600;">View Reel ↗</div>
+
+            </div><!-- /okum-thumb-content -->
+          </a>
+          <div class="p-5">
+            <div class="flex items-center gap-1.5 text-[10px] font-medium text-stone-700 mb-2 flex-wrap">
+              <span class="px-2 py-0.5 rounded" style="background:#1A1410;color:#FFA836;">영상 제작 스튜디오</span>
+              <span class="px-2 py-0.5 bg-slate-100 rounded">유튜브·댄스/뮤직·스케치/광고·방송·웨딩</span>
+              <span class="px-2 py-0.5 bg-slate-100 rounded">다크 시네마틱</span>
+            </div>
+            <h3 class="font-semibold text-slate-900 mb-1">랜딩 페이지 - Studio OKUM 영상 제작 스튜디오</h3>
+            <p class="text-sm text-slate-800 leading-relaxed mb-3">기획부터 4K 마스터까지, 5가지 카테고리(유튜브·댄스/뮤직·스케치/광고·방송·웨딩) 포트폴리오 캐러셀과 진행 과정·의뢰 폼이 포함되었습니다.</p>
+            <div class="flex items-center justify-between text-xs">
+              <a href="/okum" target="_blank" rel="noopener" class="inline-flex items-center gap-1 font-medium hover:underline" style="color:#E8860B;">
+                라이브 보기
+                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- LP Sample 1: Founder service (AXIS) -->
+        <article class="reveal card-hover border border-slate-200 rounded-xl overflow-hidden bg-white">
+          <a id="axis-thumb-wrap" href="/service" target="_blank" rel="noopener" class="block aspect-[4/3] relative overflow-hidden border-b border-blue-200/40" style="background:#EFF6FF;">
+            <div id="axis-thumb-content" style="position:absolute;top:0;left:0;width:400px;height:300px;transform-origin:top left;overflow:hidden;">
+
+              <!-- Background -->
+              <div style="position:absolute;inset:0;background:linear-gradient(180deg,#EFF6FF 0%,#fff 55%);"></div>
+              <div style="position:absolute;inset:0;opacity:0.035;background-image:linear-gradient(rgba(0,0,0,1) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,1) 1px,transparent 1px);background-size:32px 32px;"></div>
+
+              <!-- Badge -->
+              <div style="position:absolute;top:14px;left:50%;transform:translateX(-50%);white-space:nowrap;background:#EFF6FF;color:#1D4ED8;border:1px solid #BFDBFE;border-radius:20px;padding:3px 10px;font-size:7.5px;font-weight:700;">스타트업 창업자를 위해 만들었습니다</div>
+
+              <!-- Headline -->
+              <div style="position:absolute;top:36px;left:0;right:0;text-align:center;padding:0 20px;">
+                <div style="font-size:17px;font-weight:900;line-height:1.22;color:#0F172A;">계약부터 정산까지</div>
+                <div style="font-size:17px;font-weight:900;line-height:1.22;color:#1D4ED8;">창업자의 시간을</div>
+                <div style="font-size:17px;font-weight:900;line-height:1.22;color:#0F172A;margin-bottom:5px;">돌려드립니다</div>
+                <div style="font-size:7.5px;color:#64748B;margin-bottom:6px;">견적서·계약서·세금계산서·거래처 관리를 하나로.</div>
+                <div style="display:flex;gap:5px;justify-content:center;">
+                  <div style="background:#FEE500;color:#191919;padding:5px 9px;border-radius:7px;font-size:7px;font-weight:800;">카카오톡 무료 상담</div>
+                  <div style="border:1px solid #E2E8F0;color:#475569;padding:5px 8px;border-radius:7px;font-size:7px;font-weight:600;">기능 살펴보기 →</div>
+                </div>
+              </div>
+
+              <!-- Browser mockup (peeks from bottom) -->
+              <div style="position:absolute;bottom:0;left:14px;right:14px;background:#fff;border:1px solid #E2E8F0;border-top-left-radius:8px;border-top-right-radius:8px;overflow:hidden;box-shadow:0 -10px 28px rgba(15,23,42,0.1);">
+                <div style="background:#F1F5F9;border-bottom:1px solid #E2E8F0;padding:5px 10px;display:flex;align-items:center;gap:7px;">
+                  <div style="display:flex;gap:3.5px;">
+                    <div style="width:6px;height:6px;border-radius:50%;background:#FC5F57;"></div>
+                    <div style="width:6px;height:6px;border-radius:50%;background:#FDBB2F;"></div>
+                    <div style="width:6px;height:6px;border-radius:50%;background:#2BC840;"></div>
+                  </div>
+                  <div style="flex:1;background:#fff;border:1px solid #E2E8F0;border-radius:3px;padding:2px 7px;font-size:6.5px;color:#94A3B8;">app.axisnow.kr</div>
+                  <div style="width:36px;"></div>
+                </div>
+                <div style="display:grid;grid-template-columns:72px 1fr;height:118px;">
+                  <div style="background:#fff;border-right:1px solid #F1F5F9;padding:7px 5px;">
+                    <div style="font-size:6px;font-weight:900;color:#0F172A;margin-bottom:5px;padding:0 3px;">AXIS</div>
+                    <div style="background:#EFF6FF;border-radius:3px;padding:2.5px 5px;font-size:5px;font-weight:700;color:#1D4ED8;margin-bottom:2px;">대시보드</div>
+                    <div style="padding:2.5px 5px;font-size:5px;color:#94A3B8;margin-bottom:1px;">계약·견적서</div>
+                    <div style="padding:2.5px 5px;font-size:5px;color:#94A3B8;margin-bottom:1px;">세금계산서</div>
+                    <div style="padding:2.5px 5px;font-size:5px;color:#94A3B8;">거래처</div>
+                  </div>
+                  <div style="padding:7px 9px;">
+                    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px;margin-bottom:5px;">
+                      <div style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:4px;padding:3px 4px;">
+                        <div style="font-size:3.8px;color:#94A3B8;margin-bottom:1.5px;">이번 달 수금</div>
+                        <div style="font-size:6.5px;font-weight:800;color:#0F172A;">4,820만</div>
+                        <div style="font-size:3.8px;color:#059669;margin-top:1px;">+12%</div>
+                      </div>
+                      <div style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:4px;padding:3px 4px;">
+                        <div style="font-size:3.8px;color:#94A3B8;margin-bottom:1.5px;">진행 계약</div>
+                        <div style="font-size:6.5px;font-weight:800;color:#0F172A;">3건</div>
+                      </div>
+                      <div style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:4px;padding:3px 4px;">
+                        <div style="font-size:3.8px;color:#94A3B8;margin-bottom:1.5px;">미수금</div>
+                        <div style="font-size:6.5px;font-weight:800;color:#B45309;">650만</div>
+                      </div>
+                    </div>
+                    <div style="display:flex;flex-direction:column;gap:2px;">
+                      <div style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:4px;padding:3px 6px;display:flex;align-items:center;justify-content:space-between;">
+                        <div style="font-size:5px;font-weight:600;color:#0F172A;">네이버 · 계약서 발송</div>
+                        <div style="display:flex;align-items:center;gap:4px;"><span style="font-size:5px;color:#475569;">1,200만원</span><div style="background:#F0FDF4;color:#059669;font-size:4px;font-weight:700;padding:1px 5px;border-radius:8px;">완료</div></div>
+                      </div>
+                      <div style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:4px;padding:3px 6px;display:flex;align-items:center;justify-content:space-between;">
+                        <div style="font-size:5px;font-weight:600;color:#0F172A;">카카오 · 견적서 승인</div>
+                        <div style="display:flex;align-items:center;gap:4px;"><span style="font-size:5px;color:#475569;">850만원</span><div style="background:#EFF6FF;color:#1D4ED8;font-size:4px;font-weight:700;padding:1px 5px;border-radius:8px;">진행</div></div>
+                      </div>
+                      <div style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:4px;padding:3px 6px;display:flex;align-items:center;justify-content:space-between;">
+                        <div style="font-size:5px;font-weight:600;color:#0F172A;">토스 · 세금계산서 발행</div>
+                        <div style="display:flex;align-items:center;gap:4px;"><span style="font-size:5px;color:#475569;">320만원</span><div style="background:#FEF3C7;color:#92400E;font-size:4px;font-weight:700;padding:1px 5px;border-radius:8px;">대기</div></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div><!-- /axis-thumb-content -->
+          </a>
+          <div class="p-5">
+            <div class="flex items-center gap-1.5 text-[10px] font-medium text-stone-700 mb-2">
+              <span class="px-2 py-0.5 rounded" style="background:#EFF6FF;color:#1D4ED8;">1인 창업자</span>
+              <span class="px-2 py-0.5 bg-slate-100 rounded">벤토 그리드</span>
+              <span class="px-2 py-0.5 bg-slate-100 rounded">카카오 문의</span>
+              <span class="px-2 py-0.5 bg-stone-200 text-stone-700 rounded">가상</span>
+            </div>
+            <h3 class="font-semibold text-slate-900 mb-1">서비스 소개 페이지 - AXIS</h3>
+            <p class="text-sm text-slate-800 leading-relaxed mb-3">기능 3컷(견적·정산·거래처), 이용 흐름, 후기, 카톡 문의 섹션으로 구성되었습니다.</p>
+            <div class="flex items-center justify-between text-xs">
+              <a href="/service" target="_blank" rel="noopener" class="inline-flex items-center gap-1 font-medium hover:underline" style="color:#1D4ED8;">
+                라이브 보기
+                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- LP Sample 2: Okinawa Parasol (live) -->
+        <article class="reveal card-hover border border-slate-200 rounded-xl overflow-hidden bg-white">
+          <a href="/okinawa" target="_blank" rel="noopener" class="block aspect-[4/3] relative overflow-hidden border-b border-amber-200/40">
+            <div class="absolute inset-0" style="background:linear-gradient(160deg,rgba(20,95,130,0.72)0%,rgba(26,123,167,0.62)50%,rgba(20,95,130,0.82)100%),url('/okinawa/img/optimized/hero.webp') center 10%/cover no-repeat;"></div>
+            <div class="absolute inset-0 flex flex-col items-center justify-center gap-2 text-white">
+              <p class="text-[8px] font-semibold tracking-[0.4em] text-white/60 uppercase">Mokpo, Jeonnam</p>
+              <p class="text-lg font-bold tracking-widest leading-tight text-center drop-shadow">OKINAWA<br>PARASOL</p>
+
+            </div>
+          </a>
+          <div class="p-5">
+            <div class="flex items-center gap-1.5 text-[10px] font-medium text-stone-700 mb-2">
+              <span class="px-2 py-0.5 bg-[#e8f4f9] text-[#1A7BA7] rounded">카페</span>
+              <span class="px-2 py-0.5 bg-slate-100 rounded">갤러리</span>
+              <span class="px-2 py-0.5 bg-slate-100 rounded">카카오맵</span>
+            </div>
+            <h3 class="font-semibold text-slate-900 mb-1">랜딩 페이지 - 카페 오키나와 파라솔</h3>
+            <p class="text-sm text-slate-800 leading-relaxed mb-3">히어로 배경과 이미지 갤러리 그리고 카카오맵이 임베드되었습니다.</p>
+            <div class="flex items-center justify-between text-xs">
+              <a href="/okinawa" target="_blank" rel="noopener" class="inline-flex items-center gap-1 text-[#1A7BA7] font-medium hover:underline">
+                라이브 보기
+                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- LP Sample 3: AURA App Pre-registration -->
+        <article class="reveal card-hover border border-slate-200 rounded-xl overflow-hidden bg-white">
+          <a id="aura-thumb-wrap" href="/app" target="_blank" rel="noopener" class="block aspect-[4/3] relative overflow-hidden border-b border-purple-200/40" style="background:#0A0E1A;">
+            <!-- 기준 크기 400×300 고정, JS로 scale 적용 -->
+            <div id="aura-thumb-content" style="position:absolute;top:0;left:0;width:400px;height:300px;transform-origin:top left;">
+
+              <!-- glow blobs -->
+              <div style="position:absolute;width:200px;height:200px;background:rgba(139,92,246,.28);filter:blur(60px);top:-50px;left:-50px;border-radius:9999px;"></div>
+              <div style="position:absolute;width:160px;height:160px;background:rgba(236,72,153,.2);filter:blur(48px);bottom:-30px;right:-20px;border-radius:9999px;"></div>
+              <div style="position:absolute;width:120px;height:120px;background:rgba(99,102,241,.15);filter:blur(36px);top:40%;left:38%;border-radius:9999px;"></div>
+
+              <!-- left: hero text -->
+              <div style="position:absolute;top:0;bottom:0;left:20px;width:195px;display:flex;flex-direction:column;justify-content:center;">
+                <p style="font-size:8px;font-weight:600;letter-spacing:.3em;color:rgba(167,139,250,.7);text-transform:uppercase;margin-bottom:8px;">Wellness App</p>
+                <p style="font-size:17px;font-weight:800;line-height:1.3;color:white;margin-bottom:10px;">더 깊이 쉬고,<br/>더 선명하게<br/><span style="background:linear-gradient(135deg,#A78BFA,#EC4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">살아가세요</span></p>
+                <div style="display:flex;gap:5px;margin-bottom:8px;">
+                  <div style="flex:1;height:24px;border-radius:6px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);"></div>
+                  <div style="width:42px;height:24px;border-radius:6px;background:linear-gradient(135deg,#8B5CF6,#EC4899);display:flex;align-items:center;justify-content:center;">
+                    <span style="font-size:7px;color:white;font-weight:700;">등록</span>
+                  </div>
+                </div>
+                <div style="display:flex;gap:4px;">
+                  <div style="height:17px;padding:0 6px;border-radius:4px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;gap:3px;">
+                    <svg width="7" height="7" viewBox="0 0 24 24" fill="rgba(255,255,255,.4)"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                    <span style="font-size:5.5px;color:rgba(255,255,255,.35);">App Store</span>
+                  </div>
+                  <div style="height:17px;padding:0 6px;border-radius:4px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;">
+                    <span style="font-size:5.5px;color:rgba(255,255,255,.35);">Google Play</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- right: phone mockup -->
+              <div style="position:absolute;top:0;bottom:0;right:20px;display:flex;align-items:center;">
+                <div style="width:110px;height:220px;border-radius:18px;border:1.5px solid rgba(255,255,255,.15);background:#0D1120;position:relative;overflow:hidden;box-shadow:0 24px 48px rgba(0,0,0,.7),0 0 36px rgba(139,92,246,.18);">
+                  <div style="width:40px;height:10px;background:#0A0E1A;border-radius:0 0 7px 7px;margin:0 auto;"></div>
+                  <div style="padding:4px 7px 0;">
+                    <p style="font-size:5px;color:rgba(148,163,184,.8);margin-bottom:1px;">Good night,</p>
+                    <p style="font-size:6px;font-weight:600;color:white;margin-bottom:6px;">오늘 회복 점수</p>
+                    <div style="display:flex;justify-content:center;margin-bottom:6px;">
+                      <svg width="58" height="58" viewBox="0 0 58 58">
+                        <circle class="th-ring" cx="29" cy="29" r="24" fill="none" stroke="rgba(139,92,246,.28)" stroke-width="1"/>
+                        <circle class="th-ring" cx="29" cy="29" r="16" fill="none" stroke="rgba(139,92,246,.52)" stroke-width="1" style="animation-delay:.5s;"/>
+                        <circle cx="29" cy="29" r="9" fill="url(#tr2)"/>
+                        <text x="29" y="32.5" text-anchor="middle" font-size="7" font-weight="bold" fill="white">83</text>
+                        <defs>
+                          <radialGradient id="tr2" cx="40%" cy="40%">
+                            <stop offset="0%" stop-color="#A78BFA"/>
+                            <stop offset="100%" stop-color="#EC4899"/>
+                          </radialGradient>
+                        </defs>
+                      </svg>
+                    </div>
+                    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:3px;margin-bottom:5px;">
+                      <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:5px;padding:3px 1px;text-align:center;">
+                        <p style="font-size:5px;color:#A78BFA;font-weight:700;">7h</p>
+                        <p style="font-size:3.5px;color:rgba(100,116,139,.9);">수면</p>
+                      </div>
+                      <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:5px;padding:3px 1px;text-align:center;">
+                        <p style="font-size:5px;color:#F472B6;font-weight:700;">15m</p>
+                        <p style="font-size:3.5px;color:rgba(100,116,139,.9);">명상</p>
+                      </div>
+                      <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:5px;padding:3px 1px;text-align:center;">
+                        <p style="font-size:5px;color:#818CF8;font-weight:700;">낮음</p>
+                        <p style="font-size:3.5px;color:rgba(100,116,139,.9);">스트레스</p>
+                      </div>
+                    </div>
+                    <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:5px;padding:4px 5px;">
+                      <p style="font-size:4px;color:rgba(148,163,184,.7);margin-bottom:3px;">수면 사운드</p>
+                      <div style="display:flex;align-items:flex-end;gap:2.5px;height:11px;justify-content:center;">
+                        <div class="th-bar" style="width:4px;background:linear-gradient(to top,#8B5CF6,#EC4899);border-radius:1px;"></div>
+                        <div class="th-bar" style="width:4px;background:linear-gradient(to top,#8B5CF6,#EC4899);border-radius:1px;animation-delay:.15s;"></div>
+                        <div class="th-bar" style="width:4px;background:linear-gradient(to top,#8B5CF6,#EC4899);border-radius:1px;animation-delay:.3s;"></div>
+                        <div class="th-bar" style="width:4px;background:linear-gradient(to top,#8B5CF6,#EC4899);border-radius:1px;animation-delay:.45s;"></div>
+                        <div class="th-bar" style="width:4px;background:linear-gradient(to top,#8B5CF6,#EC4899);border-radius:1px;animation-delay:.6s;"></div>
+                        <div class="th-bar" style="width:4px;background:linear-gradient(to top,#8B5CF6,#EC4899);border-radius:1px;animation-delay:.75s;"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div><!-- /aura-thumb-content -->
+          </a>
+          <div class="p-5">
+            <div class="flex items-center gap-1.5 text-[10px] font-medium text-stone-700 mb-2">
+              <span class="px-2 py-0.5 rounded" style="background:#f3eeff;color:#7C3AED;">앱 사전등록</span>
+              <span class="px-2 py-0.5 bg-slate-100 rounded">카운트다운</span>
+              <span class="px-2 py-0.5 bg-slate-100 rounded">다크 테마</span>
+              <span class="px-2 py-0.5 bg-stone-200 text-stone-700 rounded">가상</span>
+            </div>
+            <h3 class="font-semibold text-slate-900 mb-1">사전등록 페이지 - AURA 웰니스 앱</h3>
+            <p class="text-sm text-slate-800 leading-relaxed mb-3">히어로 폰 목업, 기능 소개, 출시 카운트다운, 이메일 사전등록 폼이 포함되었습니다.</p>
+            <div class="flex items-center justify-between text-xs">
+              <a href="/app" target="_blank" rel="noopener" class="inline-flex items-center gap-1 font-medium hover:underline" style="color:#7C3AED;">
+                라이브 보기
+                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- LP Sample 4: Atelier NUMEN -->
+        <article class="reveal card-hover border border-slate-200 rounded-xl overflow-hidden bg-white">
+          <a id="numen-thumb-wrap" href="/numen" target="_blank" rel="noopener" class="block aspect-[4/3] relative overflow-hidden border-b border-slate-200" style="background:#0A0A0A;">
+            <div id="numen-thumb-content" style="position:absolute;top:0;left:0;width:400px;height:300px;transform-origin:top left;overflow:hidden;">
+
+              <img src="https://images.unsplash.com/photo-1565768502473-c5dc73b7eb33?w=800&q=85&auto=format&fit=crop" alt="브루털리즘 모던 건축" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" />
+              <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.35) 0%,rgba(0,0,0,0.15) 40%,rgba(0,0,0,0.7) 100%);"></div>
+
+              <!-- Top meta -->
+              <div style="position:absolute;top:14px;left:18px;display:flex;align-items:center;gap:8px;">
+                <svg width="14" height="14" viewBox="0 0 32 32" aria-hidden="true">
+                  <rect x="6" y="6" width="5" height="20" fill="#F2F0EB"/>
+                  <rect x="13" y="6" width="5" height="12" fill="#F2F0EB"/>
+                  <rect x="20" y="6" width="4" height="20" fill="#F2F0EB"/>
+                </svg>
+                <span style="font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:0.28em;color:#F2F0EB;font-weight:500;text-transform:uppercase;">NUMEN / Est. 2014</span>
+              </div>
+              <div style="position:absolute;top:14px;right:18px;font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:0.22em;color:rgba(242,240,235,0.6);text-transform:uppercase;font-weight:500;">Seoul</div>
+
+              <!-- Hero text -->
+              <div style="position:absolute;bottom:48px;left:18px;right:18px;">
+                <p style="font-family:'Bricolage Grotesque','Inter',sans-serif;font-size:42px;line-height:0.88;letter-spacing:-0.04em;color:#F2F0EB;font-weight:800;">Form<br/>follows<br/>quiet.</p>
+              </div>
+
+              <!-- Bottom meta -->
+              <div style="position:absolute;bottom:14px;left:18px;font-family:'JetBrains Mono',monospace;font-size:7.5px;letter-spacing:0.22em;color:rgba(242,240,235,0.7);text-transform:uppercase;font-weight:500;">A Spatial Practice</div>
+              <div style="position:absolute;bottom:14px;right:18px;font-family:'JetBrains Mono',monospace;font-size:7.5px;letter-spacing:0.22em;color:#F2F0EB;text-transform:uppercase;font-weight:500;">Selected Works ↗</div>
+
+            </div><!-- /numen-thumb-content -->
+          </a>
+          <div class="p-5">
+            <div class="flex items-center gap-1.5 text-[10px] font-medium text-stone-700 mb-2 flex-wrap">
+              <span class="px-2 py-0.5 rounded" style="background:#0A0A0A;color:#F2F0EB;">건축 사무소</span>
+              <span class="px-2 py-0.5 bg-slate-100 rounded">에디토리얼 모노크롬</span>
+              <span class="px-2 py-0.5 bg-slate-100 rounded">Bricolage Grotesque</span>
+              <span class="px-2 py-0.5 bg-stone-200 text-stone-700 rounded">가상</span>
+            </div>
+            <h3 class="font-semibold text-slate-900 mb-1">포트폴리오 페이지 - Atelier NUMEN 건축 사무소</h3>
+            <p class="text-sm text-slate-800 leading-relaxed mb-3">풀블리드 작품 사진 히어로, 6개 프로젝트 그리드, 5단계 프로세스, 파트너 소개, 출판 이력, 의뢰 섹션이 포함되었습니다.</p>
+            <div class="flex items-center justify-between text-xs">
+              <a href="/numen" target="_blank" rel="noopener" class="inline-flex items-center gap-1 font-medium hover:underline" style="color:#0A0A0A;">
+                라이브 보기
+                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- LP Sample 5: TEMPO Society -->
+        <article class="reveal card-hover border border-slate-200 rounded-xl overflow-hidden bg-white">
+          <a id="tempo-thumb-wrap" href="/tempo_society" target="_blank" rel="noopener" class="block aspect-[4/3] relative overflow-hidden border-b border-stone-200" style="background:#1A1815;">
+            <div id="tempo-thumb-content" style="position:absolute;top:0;left:0;width:400px;height:300px;transform-origin:top left;overflow:hidden;">
+
+              <img src="https://images.unsplash.com/photo-1601121853354-e6e866bd2bac?w=800&q=85&auto=format&fit=crop" alt="러너 트랙 액션" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" />
+              <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.15) 40%,rgba(0,0,0,0.7) 100%);"></div>
+
+              <!-- Top strap -->
+              <div style="position:absolute;top:0;left:0;right:0;background:#1A1815;padding:5px 18px;display:flex;justify-content:space-between;align-items:center;">
+                <span style="font-family:'JetBrains Mono',monospace;font-size:7.5px;letter-spacing:0.24em;color:#F4F1EB;text-transform:uppercase;font-weight:500;">Next Run · Sat 06.27 / 7am</span>
+                <span style="font-family:'JetBrains Mono',monospace;font-size:7.5px;letter-spacing:0.24em;color:#DC2626;text-transform:uppercase;font-weight:700;">18 spots ↗</span>
+              </div>
+
+              <!-- Logo -->
+              <div style="position:absolute;top:32px;left:18px;display:flex;align-items:center;gap:7px;">
+                <svg width="16" height="16" viewBox="0 0 32 32" aria-hidden="true">
+                  <rect width="32" height="32" fill="#1A1815"/>
+                  <path d="M8 22 L8 10 L13 10 L16 16 L19 10 L24 10 L24 22 L20 22 L20 16 L17.5 21 L14.5 21 L12 16 L12 22 Z" fill="#DC2626"/>
+                </svg>
+                <div style="line-height:0.95;">
+                  <div style="font-family:'Anton',sans-serif;font-size:14px;color:#F4F1EB;letter-spacing:-0.01em;">TEMPO</div>
+                  <div style="font-family:'JetBrains Mono',monospace;font-size:6.5px;letter-spacing:0.18em;color:rgba(244,241,235,0.6);">SOCIETY · 2019</div>
+                </div>
+              </div>
+
+              <!-- Hero text -->
+              <div style="position:absolute;bottom:46px;left:18px;right:18px;">
+                <p style="font-family:'Anton',sans-serif;font-size:46px;line-height:0.92;letter-spacing:-0.01em;color:#F4F1EB;font-weight:400;text-transform:uppercase;">Run kindly,<br/><span style="font-family:'Inter',sans-serif;font-style:italic;font-weight:500;text-transform:lowercase;letter-spacing:-0.01em;">ride</span> stubbornly.</p>
+              </div>
+
+              <!-- Bottom CTA -->
+              <div style="position:absolute;bottom:14px;left:18px;display:flex;align-items:center;gap:8px;">
+                <div style="background:#DC2626;color:#F4F1EB;padding:5px 11px;font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:0.18em;text-transform:uppercase;font-weight:700;">Join the Society</div>
+              </div>
+              <div style="position:absolute;bottom:14px;right:18px;font-family:'JetBrains Mono',monospace;font-size:7.5px;letter-spacing:0.22em;color:rgba(244,241,235,0.7);text-transform:uppercase;font-weight:500;">See Schedule →</div>
+
+            </div><!-- /tempo-thumb-content -->
+          </a>
+          <div class="p-5">
+            <div class="flex items-center gap-1.5 text-[10px] font-medium text-stone-700 mb-2 flex-wrap">
+              <span class="px-2 py-0.5 rounded" style="background:#1A1815;color:#DC2626;">러닝·사이클 클럽</span>
+              <span class="px-2 py-0.5 bg-slate-100 rounded">Anton 컨덴스</span>
+              <span class="px-2 py-0.5 bg-slate-100 rounded">헤리티지 스포츠</span>
+              <span class="px-2 py-0.5 bg-stone-200 text-stone-700 rounded">가상</span>
+            </div>
+            <h3 class="font-semibold text-slate-900 mb-1">멤버십 페이지 - TEMPO Society 러닝·사이클 클럽</h3>
+            <p class="text-sm text-slate-800 leading-relaxed mb-3">풀블리드 액션 히어로, 활동 통계, 월간 일정 테이블, 갤러리 그리드, 킷 2종, 멤버 카드 3명, 가입 CTA 섹션이 포함되었습니다.</p>
+            <div class="flex items-center justify-between text-xs">
+              <a href="/tempo_society" target="_blank" rel="noopener" class="inline-flex items-center gap-1 font-medium hover:underline" style="color:#DC2626;">
+                라이브 보기
+                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- LP Sample 6: Halden Studio (Cinematic film studio) -->
+        <article class="reveal card-hover border border-slate-200 rounded-xl overflow-hidden bg-white">
+          <a href="/halden_studio" target="_blank" rel="noopener" class="block aspect-[4/3] relative overflow-hidden border-b border-slate-200" style="background:#0a0907;">
+
+            <!-- Atmospheric background -->
+            <div class="absolute inset-0" style="background:radial-gradient(ellipse 60% 50% at 30% 35%,rgba(122,58,24,0.55),transparent 65%),radial-gradient(ellipse 70% 60% at 75% 78%,rgba(255,91,34,0.22),transparent 70%),linear-gradient(180deg,#1c1410 0%,#0a0807 55%,#050402 100%);"></div>
+
+            <!-- Letterbox-feel gradients -->
+            <div class="absolute top-0 inset-x-0 h-[14%] pointer-events-none" style="background:linear-gradient(to bottom,rgba(0,0,0,0.55),transparent);"></div>
+            <div class="absolute bottom-0 inset-x-0 h-[28%] pointer-events-none" style="background:linear-gradient(to top,rgba(0,0,0,0.75),transparent);"></div>
+
+            <!-- Top-left brand mark -->
+            <div class="absolute top-3 left-4 flex items-center gap-2">
+              <span class="w-1.5 h-1.5 rounded-full" style="background:#ff5b22;box-shadow:0 0 10px rgba(255,91,34,0.7);"></span>
+              <span class="text-[9px] tracking-[0.28em] uppercase text-white/85 font-medium">Halden Studio</span>
+            </div>
+
+            <!-- Top-right meta -->
+            <div class="absolute top-3 right-4 text-[8px] tracking-[0.22em] uppercase text-white/55 font-medium">052 Films</div>
+
+            <!-- Center hero copy -->
+            <div class="absolute inset-0 flex items-center justify-center px-4">
+              <p class="text-center text-white" style="font-weight:200;line-height:1.05;letter-spacing:-0.035em;font-size:clamp(18px,3vw,28px);">
+                We make films<br/>that <span style="font-weight:400;">move</span>.
+              </p>
+            </div>
+
+            <!-- Bottom-left subtitle -->
+            <div class="absolute bottom-3 left-4 text-[9px] text-white/65 font-medium tracking-wider">
+              Brand · Commercial · MV
+            </div>
+
+            <!-- Bottom-right CTA hint -->
+            <div class="absolute bottom-3 right-4 inline-flex items-center gap-1 text-[9px] text-white/95 font-medium tracking-wider">
+              <span>Watch reel</span>
+              <span aria-hidden="true">↗</span>
+            </div>
+          </a>
+          <div class="p-5">
+            <div class="flex items-center gap-1.5 text-[10px] font-medium text-stone-700 mb-2 flex-wrap">
+              <span class="px-2 py-0.5 rounded" style="background:#fef3ec;color:#c84a1c;">필름 스튜디오</span>
+              <span class="px-2 py-0.5 bg-slate-100 rounded">비디오 배경 히어로</span>
+              <span class="px-2 py-0.5 bg-slate-100 rounded">시네마틱</span>
+              <span class="px-2 py-0.5 bg-stone-200 text-stone-700 rounded">가상</span>
+            </div>
+            <h3 class="font-semibold text-slate-900 mb-1">랜딩 페이지 - Halden Studio 영상 스튜디오</h3>
+            <p class="text-sm text-slate-800 leading-relaxed mb-3">영상 배경 히어로, 6개 작품 그리드, 서비스, 프로세스, 연락 섹션이 포함되었습니다.</p>
+            <div class="flex items-center justify-between text-xs">
+              <a href="/halden_studio" target="_blank" rel="noopener" class="inline-flex items-center gap-1 font-medium hover:underline" style="color:#c84a1c;">
+                라이브 보기
+                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Data samples -->
+      <div class="reveal mb-4 flex items-center gap-3">
+        <span class="inline-flex items-center gap-2 text-xs font-semibold text-slate-800 bg-slate-100 px-3 py-1.5 rounded-full">
+          <span class="w-1.5 h-1.5 bg-amber-600 rounded-full"></span>
+          데이터, 자동화 샘플
+        </span>
+        <div class="flex-1 h-px bg-slate-200"></div>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-4 sm:gap-5">
+
+        <!-- Demo 1: Excel Automation -->
+        <article class="reveal card-hover border border-slate-200 rounded-xl overflow-hidden bg-white">
+          <a id="excel-thumb-wrap" href="/auto/excel.html" target="_blank" rel="noopener" class="block aspect-[4/3] relative overflow-hidden border-b border-emerald-200/40" style="background:#F0FDF4;">
+            <div id="excel-thumb-content" style="position:absolute;top:0;left:0;width:400px;height:300px;transform-origin:top left;overflow:hidden;">
+
+              <div style="position:absolute;inset:0;background:#F0FDF4;"></div>
+
+              <!-- Before / Arrow / After - flex 수직 중앙 -->
+              <div style="position:absolute;top:16px;left:16px;right:16px;bottom:56px;display:flex;align-items:center;gap:10px;">
+
+                <!-- Before table -->
+                <div style="flex:1;background:#fff;border:1px solid #FCA5A5;border-radius:10px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.07);">
+                  <div style="background:#FEF2F2;padding:6px 10px;font-size:9px;font-weight:700;color:#DC2626;border-bottom:1px solid #FCA5A5;">Before</div>
+                  <div style="padding:5px 8px;display:grid;grid-template-columns:1fr 1fr;gap:3px;">
+                    <div style="font-size:8px;color:#94A3B8;font-weight:600;">거래처</div>
+                    <div style="font-size:8px;color:#94A3B8;font-weight:600;">금액</div>
+                    <div style="font-size:8.5px;color:#64748B;">테크노(주)</div>
+                    <div style="font-size:8.5px;color:#64748B;">1,200,000</div>
+                    <div style="font-size:8.5px;color:#64748B;">테크노 주식회사</div>
+                    <div style="font-size:8.5px;color:#64748B;">1200000</div>
+                    <div style="font-size:8.5px;color:#64748B;">디자인파트너스</div>
+                    <div style="font-size:8.5px;color:#64748B;">850000</div>
+                    <div style="font-size:8.5px;color:#64748B;">디자인 파트너스</div>
+                    <div style="font-size:8.5px;color:#64748B;">300000</div>
+                  </div>
+                  <div style="padding:4px 8px;background:#FEF2F2;font-size:7.5px;color:#DC2626;font-weight:600;">중복 의심 2건</div>
+                </div>
+
+                <!-- Arrow -->
+                <div style="flex-shrink:0;font-size:22px;font-weight:900;color:#059669;">→</div>
+
+                <!-- After table -->
+                <div style="flex:1;background:#fff;border:1px solid #6EE7B7;border-radius:10px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.07);">
+                  <div style="background:#F0FDF4;padding:6px 10px;font-size:9px;font-weight:700;color:#059669;border-bottom:1px solid #6EE7B7;">After - 자동 정리</div>
+                  <div style="padding:5px 8px;display:grid;grid-template-columns:1fr 1fr;gap:3px;">
+                    <div style="font-size:8px;color:#94A3B8;font-weight:600;">거래처</div>
+                    <div style="font-size:8px;color:#94A3B8;font-weight:600;">합계</div>
+                    <div style="font-size:8.5px;color:#0F172A;font-weight:600;">테크노 주식회사</div>
+                    <div style="font-size:8.5px;color:#059669;font-weight:700;">1,200,000</div>
+                    <div style="font-size:8.5px;color:#94A3B8;text-decoration:line-through;">테크노(주)</div>
+                    <div style="font-size:8.5px;color:#94A3B8;text-decoration:line-through;">중복제거</div>
+                    <div style="font-size:8.5px;color:#0F172A;font-weight:600;">디자인 파트너스</div>
+                    <div style="font-size:8.5px;color:#059669;font-weight:700;">1,150,000</div>
+                  </div>
+                  <div style="padding:4px 8px;background:#F0FDF4;font-size:7.5px;color:#059669;font-weight:600;">합계 2,350,000원 · 1건 제거</div>
+                </div>
+
+              </div>
+
+              <!-- Code line -->
+              <div style="position:absolute;bottom:14px;left:16px;right:16px;background:#0F172A;border-radius:8px;padding:7px 12px;font-size:9px;font-family:monospace;color:#6EE7B7;white-space:nowrap;overflow:hidden;">df.drop_duplicates().groupby(<span style="color:#FCD34D;">"거래처_표준"</span>).agg(합계=(<span style="color:#FCD34D;">"금액"</span>,<span style="color:#FCD34D;">"sum"</span>))</div>
+
+            </div><!-- /excel-thumb-content -->
+          </a>
+          <div class="p-5">
+            <div class="flex items-center gap-1.5 text-[10px] font-medium text-stone-700 mb-2">
+              <span class="px-2 py-0.5 bg-slate-100 rounded">Python</span>
+              <span class="px-2 py-0.5 bg-slate-100 rounded">엑셀 자동화</span>
+              <span class="px-2 py-0.5 bg-emerald-50 text-emerald-700 rounded">LIVE</span>
+              <span class="px-2 py-0.5 bg-stone-200 text-stone-700 rounded">가상</span>
+            </div>
+            <h3 class="font-semibold text-slate-900 mb-1">청구서·주문서 자동 정리</h3>
+            <p class="text-sm text-slate-800 leading-relaxed mb-3">중복 제거, 거래처명 표준화, 금액 합산을 스크립트 한 번에 처리합니다.</p>
+            <div class="flex items-center justify-between text-xs">
+              <a href="/auto/excel.html" target="_blank" rel="noopener" class="inline-flex items-center gap-1 text-emerald-700 font-medium hover:underline">
+                샘플 보기
+                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Demo 2: Crawl Alert -->
+        <article class="reveal card-hover border border-slate-200 rounded-xl overflow-hidden bg-white">
+          <a id="crawl-thumb-wrap" href="/auto/crawl.html" target="_blank" rel="noopener" class="block aspect-[4/3] relative overflow-hidden border-b border-blue-200/40" style="background:#F0F7FF;">
+            <div id="crawl-thumb-content" style="position:absolute;top:0;left:0;width:400px;height:300px;transform-origin:top left;overflow:hidden;">
+            <div style="position:absolute;inset:0;display:flex;flex-direction:column;gap:9px;justify-content:center;padding:18px 16px;">
+
+              <!-- 당근마켓 -->
+              <div style="background:#fff;border:1px solid #E2E8F0;border-radius:9px;border-top-left-radius:2px;padding:7px 11px;box-shadow:0 1px 3px rgba(0,0,0,.05);">
+                <div style="display:flex;align-items:center;gap:5px;margin-bottom:3px;">
+                  <span style="font-size:7px;font-weight:700;color:#C2410C;background:#FFF1E6;padding:1px 5px;border-radius:6px;">당근마켓</span>
+                  <span style="font-size:7px;color:#94A3B8;">09:14</span>
+                </div>
+                <div style="font-size:10px;font-weight:600;color:#0F172A;margin-bottom:3px;">🥕 아이폰 16 Pro 256GB 새 매물</div>
+                <div style="display:flex;align-items:center;justify-content:space-between;">
+                  <span style="font-size:8.5px;color:#059669;font-weight:600;">1,150,000원</span>
+                  <span style="font-size:7.5px;color:#3B82F6;text-decoration:underline;">바로가기 →</span>
+                </div>
+              </div>
+
+              <!-- 쿠팡 -->
+              <div style="background:#fff;border:1px solid #E2E8F0;border-radius:9px;border-top-left-radius:2px;padding:7px 11px;margin-left:16px;box-shadow:0 1px 3px rgba(0,0,0,.05);">
+                <div style="display:flex;align-items:center;gap:5px;margin-bottom:3px;">
+                  <span style="font-size:7px;font-weight:700;color:#DC2626;background:#FEF2F2;padding:1px 5px;border-radius:6px;">쿠팡</span>
+                  <span style="font-size:7px;color:#94A3B8;">09:31</span>
+                </div>
+                <div style="font-size:10px;font-weight:600;color:#0F172A;margin-bottom:3px;">🛒 다이슨 에어랩 가격 하락</div>
+                <div style="display:flex;align-items:center;justify-content:space-between;">
+                  <div><span style="font-size:7px;color:#94A3B8;text-decoration:line-through;margin-right:3px;">698,000</span><span style="font-size:8.5px;color:#059669;font-weight:600;">549,000원</span></div>
+                  <span style="font-size:7.5px;color:#3B82F6;text-decoration:underline;">바로가기 →</span>
+                </div>
+              </div>
+
+              <!-- 중고나라 -->
+              <div style="background:#fff;border:1px solid #E2E8F0;border-radius:9px;border-top-left-radius:2px;padding:7px 11px;box-shadow:0 1px 3px rgba(0,0,0,.05);">
+                <div style="display:flex;align-items:center;gap:5px;margin-bottom:3px;">
+                  <span style="font-size:7px;font-weight:700;color:#1D4ED8;background:#EFF6FF;padding:1px 5px;border-radius:6px;">중고나라</span>
+                  <span style="font-size:7px;color:#94A3B8;">10:02</span>
+                </div>
+                <div style="font-size:10px;font-weight:600;color:#0F172A;margin-bottom:3px;">📦 소니 WH-1000XM5 S급</div>
+                <div style="display:flex;align-items:center;justify-content:space-between;">
+                  <span style="font-size:8.5px;color:#059669;font-weight:600;">260,000원</span>
+                  <span style="font-size:7.5px;color:#3B82F6;text-decoration:underline;">바로가기 →</span>
+                </div>
+              </div>
+
+              <!-- 당근마켓 2 -->
+              <div style="background:#fff;border:1px solid #E2E8F0;border-radius:9px;border-top-left-radius:2px;padding:7px 11px;margin-left:16px;box-shadow:0 1px 3px rgba(0,0,0,.05);">
+                <div style="display:flex;align-items:center;gap:5px;margin-bottom:3px;">
+                  <span style="font-size:7px;font-weight:700;color:#C2410C;background:#FFF1E6;padding:1px 5px;border-radius:6px;">당근마켓</span>
+                  <span style="font-size:7px;color:#94A3B8;">10:47</span>
+                </div>
+                <div style="font-size:10px;font-weight:600;color:#0F172A;margin-bottom:3px;">💻 맥북 Pro 14 M3 Pro 미개봉</div>
+                <div style="display:flex;align-items:center;justify-content:space-between;">
+                  <span style="font-size:8.5px;color:#059669;font-weight:600;">2,180,000원</span>
+                  <span style="font-size:7.5px;color:#3B82F6;text-decoration:underline;">바로가기 →</span>
+                </div>
+              </div>
+
+            </div>
+            </div><!-- /crawl-thumb-content -->
+          </a>
+          <div class="p-5">
+            <div class="flex items-center gap-1.5 text-[10px] font-medium text-stone-700 mb-2">
+              <span class="px-2 py-0.5 bg-slate-100 rounded">크롤링</span>
+              <span class="px-2 py-0.5 bg-slate-100 rounded">텔레그램 알림</span>
+              <span class="px-2 py-0.5 bg-blue-50 text-blue-700 rounded">LIVE</span>
+              <span class="px-2 py-0.5 bg-stone-200 text-stone-700 rounded">가상</span>
+            </div>
+            <h3 class="font-semibold text-slate-900 mb-1">가격·매물 크롤링 알림</h3>
+            <p class="text-sm text-slate-800 leading-relaxed mb-3">당근, 중고나라, 쿠팡을 감시하고 조건 충족 시 텔레그램으로 즉시 알립니다.</p>
+            <div class="flex items-center justify-between text-xs">
+              <a href="/auto/crawl.html" target="_blank" rel="noopener" class="inline-flex items-center gap-1 text-blue-700 font-medium hover:underline">
+                샘플 보기
+                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Demo 3: Nara/DART keyword alert -->
+        <article class="reveal card-hover border border-slate-200 rounded-xl overflow-hidden bg-white">
+          <a id="dart-thumb-wrap" href="/auto/dart.html" target="_blank" rel="noopener" class="block aspect-[4/3] relative overflow-hidden border-b border-amber-200/40" style="background:#FFFBEB;">
+            <div id="dart-thumb-content" style="position:absolute;top:0;left:0;width:400px;height:300px;transform-origin:top left;overflow:hidden;">
+            <div style="position:absolute;inset:0;display:flex;flex-direction:column;gap:9px;justify-content:center;padding:18px 16px;">
+              <!-- 나라장터 -->
+              <div style="background:#fff;border:1px solid #E2E8F0;border-radius:9px;border-top-left-radius:2px;padding:7px 11px;box-shadow:0 1px 3px rgba(0,0,0,.05);">
+                <div style="display:flex;align-items:center;gap:5px;margin-bottom:3px;">
+                  <span style="font-size:7px;font-weight:700;color:#92400E;background:#FEF3C7;padding:1px 5px;border-radius:6px;">나라장터</span>
+                  <span style="font-size:7px;color:#94A3B8;">14:32</span>
+                </div>
+                <div style="font-size:10px;font-weight:600;color:#0F172A;margin-bottom:2px;">📢 새 입찰공고 - <span style="color:#B45309;">AI, 데이터</span></div>
+                <div style="font-size:8px;color:#64748B;margin-bottom:3px;">인공지능 기반 데이터 구축 및 가공 서비스 · 조달청</div>
+                <div style="display:flex;align-items:center;justify-content:space-between;">
+                  <span style="font-size:8.5px;color:#B45309;font-weight:600;">추정 4,800만원</span>
+                  <span style="font-size:7.5px;color:#3B82F6;text-decoration:underline;">공고 바로가기 →</span>
+                </div>
+              </div>
+              <!-- DART -->
+              <div style="background:#fff;border:1px solid #E2E8F0;border-radius:9px;border-top-left-radius:2px;padding:7px 11px;margin-left:16px;box-shadow:0 1px 3px rgba(0,0,0,.05);">
+                <div style="display:flex;align-items:center;gap:5px;margin-bottom:3px;">
+                  <span style="font-size:7px;font-weight:700;color:#1D4ED8;background:#EFF6FF;padding:1px 5px;border-radius:6px;">DART</span>
+                  <span style="font-size:7px;color:#94A3B8;">14:35</span>
+                </div>
+                <div style="font-size:10px;font-weight:600;color:#0F172A;margin-bottom:2px;">📑 공시 접수 - <span style="color:#1D4ED8;">자기주식</span></div>
+                <div style="font-size:8px;color:#64748B;margin-bottom:3px;">삼성전자 · 주요사항보고서 (자기주식 취득 결정)</div>
+                <div style="display:flex;align-items:center;justify-content:space-between;">
+                  <span style="font-size:8.5px;color:#1D4ED8;font-weight:600;">취득 3,000억원</span>
+                  <span style="font-size:7.5px;color:#3B82F6;text-decoration:underline;">공시 바로가기 →</span>
+                </div>
+              </div>
+              <!-- 나라장터 2 -->
+              <div style="background:#fff;border:1px solid #E2E8F0;border-radius:9px;border-top-left-radius:2px;padding:7px 11px;box-shadow:0 1px 3px rgba(0,0,0,.05);">
+                <div style="display:flex;align-items:center;gap:5px;margin-bottom:3px;">
+                  <span style="font-size:7px;font-weight:700;color:#92400E;background:#FEF3C7;padding:1px 5px;border-radius:6px;">나라장터</span>
+                  <span style="font-size:7px;color:#94A3B8;">15:08</span>
+                </div>
+                <div style="font-size:10px;font-weight:600;color:#0F172A;margin-bottom:2px;">📢 새 입찰공고 - <span style="color:#B45309;">클라우드</span></div>
+                <div style="font-size:8px;color:#64748B;margin-bottom:3px;">공공 클라우드 인프라 통합관리 용역 · 행정안전부</div>
+                <div style="display:flex;align-items:center;justify-content:space-between;">
+                  <span style="font-size:8.5px;color:#B45309;font-weight:600;">추정 1,200만원</span>
+                  <span style="font-size:7.5px;color:#3B82F6;text-decoration:underline;">공고 바로가기 →</span>
+                </div>
+              </div>
+            </div>
+            </div><!-- /dart-thumb-content -->
+          </a>
+          <div class="p-5">
+            <div class="flex items-center gap-1.5 text-[10px] font-medium text-stone-700 mb-2">
+              <span class="px-2 py-0.5 bg-slate-100 rounded">크롤링</span>
+              <span class="px-2 py-0.5 bg-slate-100 rounded">텔레그램</span>
+              <span class="px-2 py-0.5 bg-amber-50 text-amber-700 rounded">LIVE</span>
+              <span class="px-2 py-0.5 bg-stone-200 text-stone-700 rounded">가상</span>
+            </div>
+            <h3 class="font-semibold text-slate-900 mb-1">나라장터, DART 키워드 매칭 알림</h3>
+            <p class="text-sm text-slate-800 leading-relaxed mb-3">관심 키워드, 종목 공시, 입찰공고 발생 시 텔레그램으로 즉시 알립니다.</p>
+            <div class="flex items-center justify-between text-xs">
+              <a href="/auto/dart.html" target="_blank" rel="noopener" class="inline-flex items-center gap-1 text-amber-700 font-medium hover:underline">
+                샘플 보기
+                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing" class="py-16 sm:py-20 md:py-28 border-b border-amber-200/40">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="reveal mb-10 md:mb-12 max-w-2xl mx-auto text-center">
+        <div class="text-xs sm:text-sm font-semibold text-amber-700 uppercase tracking-widest mb-3">PRICING</div>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-4 gradient-text">가격 안내</h2>
+        <p class="text-slate-800 leading-relaxed">의뢰 내용에 따라 조정될 수 있습니다. 정확한 견적은 의뢰 후 회신드립니다.</p>
+      </div>
+
+      <!-- Track 1: Landing -->
+      <div class="reveal mb-4 max-w-5xl mx-auto flex items-baseline gap-3">
+        <h3 class="flex items-baseline gap-2.5">
+          <span class="font-mono text-base sm:text-lg lg:text-xl font-semibold text-amber-600">01.</span>
+          <span class="text-xl sm:text-2xl lg:text-3xl font-bold tracking-tight gradient-text">랜딩 페이지</span>
+        </h3>
+        <div class="flex-1 h-0.5 bg-gradient-to-r from-amber-300/80 via-amber-200/40 to-transparent rounded-full"></div>
+      </div>
+
+      <div class="mb-14">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-5xl mx-auto">
+          <!-- LP Basic -->
+          <div class="reveal card-hover bg-white border border-slate-200 rounded-2xl p-6 sm:p-7 flex flex-col">
+            <div class="text-sm font-semibold text-stone-700 mb-1">베이직</div>
+            <div class="flex items-baseline gap-1 mb-1">
+              <span class="text-4xl font-bold tracking-tight">25</span>
+              <span class="text-lg font-semibold">만원</span>
+              <span class="text-base text-stone-500">~</span>
+            </div>
+            <div class="text-sm text-stone-700 mb-6 pb-6 border-b border-amber-200/40">반응형 1페이지, 크로스 브라우징</div>
+            <ul class="space-y-3 text-sm text-slate-800 mb-6 flex-1">
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-stone-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                반응형 웹페이지(1 page), 모바일 대응
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-stone-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                크로스 브라우징 지원
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-stone-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                카카오톡/전화 문의 버튼
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-stone-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                수정 2회 포함
+              </li>
+            </ul>
+            <a href="#contact" data-package="lp-basic" class="contact-jump block text-center border border-amber-300 hover:border-amber-500 hover:bg-amber-50 text-amber-800 py-3 rounded-lg text-sm font-medium transition">베이직 의뢰하기</a>
+          </div>
+
+          <!-- LP Standard (highlight) -->
+          <div class="reveal card-hover luxury-dark text-white rounded-2xl p-6 sm:p-7 flex flex-col relative">
+            <div class="absolute -top-3.5 left-1/2 -translate-x-1/2">
+              <span class="inline-flex items-center gap-1 bg-amber-100 text-amber-900 text-[11px] font-semibold px-3 py-1 rounded-full shadow-md ring-1 ring-amber-300/60">
+                <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6 4.4 2.3 7.2L12 16.7 5.7 21l2.3-7.2-6-4.4h7.6z"/></svg>
+                가장 많이 의뢰
+              </span>
+            </div>
+            <div class="text-sm font-semibold text-amber-300 mb-1">스탠다드</div>
+            <div class="flex items-baseline gap-1 mb-1">
+              <span class="text-4xl font-bold tracking-tight">35</span>
+              <span class="text-lg font-semibold">만원</span>
+              <span class="text-base text-amber-200/60">~</span>
+            </div>
+            <div class="text-sm text-amber-100/70 mb-6 pb-6 border-b border-amber-900/40">모션 이펙트, 문의 폼, 공유 이미지</div>
+            <ul class="space-y-3 text-sm text-amber-50 mb-6 flex-1">
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-amber-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                베이직 + 모션 이펙트
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-amber-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                문의 폼 (텔레그램, 이메일 알림 중 1개)
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-amber-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                공유 이미지 (카카오톡, 페이스북 미리보기)
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-amber-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                수정 3회 포함
+              </li>
+            </ul>
+            <a href="#contact" data-package="lp-standard" class="contact-jump block text-center gold-cta py-3 rounded-lg text-sm font-medium">스탠다드 의뢰하기</a>
+          </div>
+
+          <!-- LP Premium -->
+          <div class="reveal card-hover bg-white border border-slate-200 rounded-2xl p-6 sm:p-7 flex flex-col">
+            <div class="text-sm font-semibold text-stone-700 mb-1">프리미엄</div>
+            <div class="flex items-baseline gap-1 mb-1">
+              <span class="text-4xl font-bold tracking-tight">60</span>
+              <span class="text-lg font-semibold">만원</span>
+              <span class="text-base text-stone-500">~</span>
+            </div>
+            <div class="text-sm text-stone-700 mb-6 pb-6 border-b border-amber-200/40">추가 페이지, 배경 영상, 도메인 연결</div>
+            <ul class="space-y-3 text-sm text-slate-800 mb-6 flex-1">
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-stone-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                스탠다드 + 추가 페이지 2개
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-stone-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                배경 영상 삽입 (고객 영상 제공 필요)
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-stone-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                도메인 연결 (금액 포함)
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-stone-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                수정 5회 포함
+              </li>
+            </ul>
+            <a href="#contact" data-package="lp-premium" class="contact-jump block text-center border border-amber-300 hover:border-amber-500 hover:bg-amber-50 text-amber-800 py-3 rounded-lg text-sm font-medium transition">프리미엄 의뢰하기</a>
+          </div>
+        </div>
+
+        <p class="reveal text-xs text-stone-700 text-center mt-6 max-w-2xl mx-auto leading-relaxed">
+          * 호스팅 및 도메인은 고객 제공 필요 (단, 프리미엄은 도메인 제공함)
+        </p>
+      </div>
+
+      <!-- Track 2: Data -->
+      <div class="reveal mb-4 max-w-5xl mx-auto flex items-baseline gap-3">
+        <h3 class="flex items-baseline gap-2.5">
+          <span class="font-mono text-base sm:text-lg lg:text-xl font-semibold text-amber-600">02.</span>
+          <span class="text-xl sm:text-2xl lg:text-3xl font-bold tracking-tight gradient-text">업무 자동화</span>
+        </h3>
+        <div class="flex-1 h-0.5 bg-gradient-to-r from-amber-300/80 via-amber-200/40 to-transparent rounded-full"></div>
+      </div>
+
+      <div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-5xl mx-auto">
+          <!-- Data Basic -->
+          <div class="reveal card-hover bg-white border border-slate-200 rounded-2xl p-6 sm:p-7 flex flex-col">
+            <div class="text-sm font-semibold text-stone-700 mb-1">베이직</div>
+            <div class="flex items-baseline gap-1 mb-1">
+              <span class="text-4xl font-bold tracking-tight">25</span>
+              <span class="text-lg font-semibold">만원</span>
+              <span class="text-base text-stone-500">~</span>
+            </div>
+            <div class="text-sm text-stone-700 mb-6 pb-6 border-b border-amber-200/40">크롤링, 엑셀 매크로, 반복 자동화</div>
+            <ul class="space-y-3 text-sm text-slate-800 mb-6 flex-1">
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-stone-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                웹 사이트 크롤링, 엑셀 매크로
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-stone-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                단순 반복 작업 자동화
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-stone-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                수정 2회 포함
+              </li>
+            </ul>
+            <a href="#contact" data-package="data-basic" class="contact-jump block text-center border border-amber-300 hover:border-amber-500 hover:bg-amber-50 text-amber-800 py-3 rounded-lg text-sm font-medium transition">베이직 의뢰하기</a>
+          </div>
+
+          <!-- Data Standard (highlight) -->
+          <div class="reveal card-hover luxury-dark text-white rounded-2xl p-6 sm:p-7 flex flex-col relative">
+            <div class="absolute -top-3.5 left-1/2 -translate-x-1/2">
+              <span class="inline-flex items-center gap-1 bg-amber-100 text-amber-900 text-[11px] font-semibold px-3 py-1 rounded-full shadow-md ring-1 ring-amber-300/60">
+                <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6 4.4 2.3 7.2L12 16.7 5.7 21l2.3-7.2-6-4.4h7.6z"/></svg>
+                가장 많이 의뢰
+              </span>
+            </div>
+            <div class="text-sm font-semibold text-amber-300 mb-1">스탠다드</div>
+            <div class="flex items-baseline gap-1 mb-1">
+              <span class="text-4xl font-bold tracking-tight">35</span>
+              <span class="text-lg font-semibold">만원</span>
+              <span class="text-base text-amber-200/60">~</span>
+            </div>
+            <div class="text-sm text-amber-100/70 mb-6 pb-6 border-b border-amber-900/40">복합 자동화, 시각화 리포트</div>
+            <ul class="space-y-3 text-sm text-amber-50 mb-6 flex-1">
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-amber-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                베이직 + 복합 작업 자동화
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-amber-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                수정 3회 포함
+              </li>
+            </ul>
+            <a href="#contact" data-package="data-standard" class="contact-jump block text-center gold-cta py-3 rounded-lg text-sm font-medium">스탠다드 의뢰하기</a>
+          </div>
+
+          <!-- Data Premium -->
+          <div class="reveal card-hover bg-white border border-slate-200 rounded-2xl p-6 sm:p-7 flex flex-col">
+            <div class="text-sm font-semibold text-stone-700 mb-1">프리미엄</div>
+            <div class="flex items-baseline gap-1 mb-1">
+              <span class="text-4xl font-bold tracking-tight">100</span>
+              <span class="text-lg font-semibold">만원</span>
+              <span class="text-base text-stone-500">~</span>
+            </div>
+            <div class="text-sm text-stone-700 mb-6 pb-6 border-b border-amber-200/40">별도 협의 필요</div>
+            <ul class="space-y-3 text-sm text-slate-800 mb-6 flex-1">
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-stone-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                원하는 자동화 기능 개발
+              </li>
+            </ul>
+            <a href="#contact" data-package="data-premium" class="contact-jump block text-center border border-amber-300 hover:border-amber-500 hover:bg-amber-50 text-amber-800 py-3 rounded-lg text-sm font-medium transition">프리미엄 의뢰하기</a>
+          </div>
+        </div>
+
+        <!-- Add-on: Maintenance -->
+        <div class="reveal max-w-5xl mx-auto mt-6">
+          <div class="bg-gradient-to-br from-amber-50 to-white border border-amber-200/70 rounded-2xl p-5 sm:p-6">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+              <div class="flex items-start gap-4">
+                <div class="shrink-0 w-11 h-11 bg-amber-500/10 border border-amber-300 rounded-xl flex items-center justify-center">
+                  <svg class="w-5 h-5 text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+                </div>
+                <div>
+                  <div class="inline-block text-[10px] font-semibold tracking-wider uppercase bg-amber-600 text-white px-2 py-0.5 rounded mb-1.5">+옵션, 차별화</div>
+                  <h3 class="text-lg font-semibold text-slate-900 mb-1">사이트 수정 및 유지보수 요청 (5만원~)</h3>
+                  <p class="text-sm text-slate-800 leading-relaxed">
+                    Victor Lab을 통해 제작하지 않았더라도 사이트에 대한 수정과 유지보수가 필요한 경우 의뢰해주세요.
+                  </p>
+                </div>
+              </div>
+              <a href="#contact" class="inline-flex items-center justify-center gap-1.5 shrink-0 text-sm bg-slate-900 hover:bg-slate-800 text-white px-4 py-2.5 rounded-lg font-medium transition">
+                옵션 의뢰하기
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section id="process" class="py-16 sm:py-20 md:py-28 border-b border-amber-200/50 bg-gradient-to-b from-white to-[#FFFAF0]">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="reveal mb-12 md:mb-14 max-w-2xl">
+        <div class="text-xs sm:text-sm font-semibold text-amber-700 uppercase tracking-widest mb-3">PROCESS</div>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-4 gradient-text">진행 절차</h2>
+      </div>
+
+      <div class="relative">
+        <div class="hidden md:block absolute top-9 left-0 right-0 h-px bg-gradient-to-r from-transparent via-amber-400/60 to-transparent"></div>
+
+        <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
+          <div class="reveal relative">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-9 h-9 rounded-full gold-cta flex items-center justify-center text-sm font-semibold relative z-10">01</div>
+            </div>
+            <h3 class="font-semibold mb-2">의뢰 폼 작성</h3>
+            <p class="text-sm text-slate-800 leading-relaxed">하단 폼에 트랙, 원하는 결과물, 참고 자료(스타일·데이터 소스)를 작성해 주세요. 약 5분 소요됩니다.</p>
+          </div>
+          <div class="reveal relative">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-9 h-9 bg-white border-2 border-amber-300 text-amber-700 rounded-full flex items-center justify-center text-sm font-semibold relative z-10">02</div>
+            </div>
+            <h3 class="font-semibold mb-2">1차 검토</h3>
+            <p class="text-sm text-slate-800 leading-relaxed">의뢰 내용을 검토한 뒤 가능 여부, 예상 가격, 일정을 회신드립니다.</p>
+          </div>
+          <div class="reveal relative">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-9 h-9 bg-white border-2 border-amber-300 text-amber-700 rounded-full flex items-center justify-center text-sm font-semibold relative z-10">03</div>
+            </div>
+            <h3 class="font-semibold mb-2">결제 후 작업 시작</h3>
+            <p class="text-sm text-slate-800 leading-relaxed">선금 50%를 결제하시면 작업을 시작하고, 진행 상황을 수시로 공유드립니다.</p>
+          </div>
+          <div class="reveal relative">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-9 h-9 bg-white border-2 border-amber-300 text-amber-700 rounded-full flex items-center justify-center text-sm font-semibold relative z-10">04</div>
+            </div>
+            <h3 class="font-semibold mb-2">결과물 납품</h3>
+            <p class="text-sm text-slate-800 leading-relaxed">잔금 입금 후 결과 파일과 링크를 전달드리며, 등급별 무상 수정 라운드를 적용합니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="py-16 sm:py-20 md:py-28 border-b border-amber-200/40">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="reveal mb-12 md:mb-14">
+        <div class="text-xs sm:text-sm font-semibold text-amber-700 uppercase tracking-widest mb-3">FAQ</div>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight gradient-text">자주 묻는 질문</h2>
+      </div>
+
+      <div class="space-y-4">
+        <details class="reveal group bg-white border border-slate-200 rounded-xl overflow-hidden">
+          <summary class="px-5 py-5 cursor-pointer flex items-baseline justify-between gap-4 hover:bg-slate-50 transition">
+            <span class="flex items-baseline gap-2.5 flex-1">
+              <span class="text-amber-600 font-bold flex-shrink-0">Q.</span>
+              <span class="font-semibold text-slate-900">랜딩 페이지 호스팅, 도메인 셋업도 해주시나요?</span>
+            </span>
+            <span class="faq-icon text-stone-500 text-xl leading-none flex-shrink-0">+</span>
+          </summary>
+          <div class="faq-content"><div>
+            <div class="px-5 pb-5">
+              <div class="border-t border-slate-100 pt-4 flex gap-2.5">
+                <span class="text-amber-600 font-bold flex-shrink-0">A.</span>
+                <div class="flex-1 text-sm text-slate-800 leading-relaxed space-y-3">
+                  <p>호스팅과 도메인은 <strong class="text-slate-900">직접 준비해주셔야 합니다.</strong></p>
+                  <p>준비해주신 호스팅에 랜딩 페이지 접속 가능하도록 준비는 가능하지만, 도메인 셋업은 지원하지 않습니다.</p>
+                  <p class="text-stone-700">별도 비용 추가 시 호스팅 및 도메인 구매·셋업까지 지원 가능합니다.</p>
+                </div>
+              </div>
+            </div>
+          </div></div>
+        </details>
+
+        <details class="reveal group bg-white border border-slate-200 rounded-xl overflow-hidden">
+          <summary class="px-5 py-5 cursor-pointer flex items-baseline justify-between gap-4 hover:bg-slate-50 transition">
+            <span class="flex items-baseline gap-2.5 flex-1">
+              <span class="text-amber-600 font-bold flex-shrink-0">Q.</span>
+              <span class="font-semibold text-slate-900">로그인, DB, 관리자 페이지 있는 사이트도 만들어주시나요?</span>
+            </span>
+            <span class="faq-icon text-stone-500 text-xl leading-none flex-shrink-0">+</span>
+          </summary>
+          <div class="faq-content"><div>
+            <div class="px-5 pb-5">
+              <div class="border-t border-slate-100 pt-4 flex gap-2.5">
+                <span class="text-amber-600 font-bold flex-shrink-0">A.</span>
+                <div class="flex-1 text-sm text-slate-800 leading-relaxed space-y-3">
+                  <p><strong class="text-slate-900">정적 1페이지 랜딩 페이지 전문</strong>입니다.</p>
+                  <p>회원가입, 결제, 로그인이 필요하신 경우 협의 후 별도 비용을 추가하여 지원 가능합니다.</p>
+                </div>
+              </div>
+            </div>
+          </div></div>
+        </details>
+
+        <details class="reveal group bg-white border border-slate-200 rounded-xl overflow-hidden">
+          <summary class="px-5 py-5 cursor-pointer flex items-baseline justify-between gap-4 hover:bg-slate-50 transition">
+            <span class="flex items-baseline gap-2.5 flex-1">
+              <span class="text-amber-600 font-bold flex-shrink-0">Q.</span>
+              <span class="font-semibold text-slate-900">디자인 수정은 몇 번까지 가능한가요?</span>
+            </span>
+            <span class="faq-icon text-stone-500 text-xl leading-none flex-shrink-0">+</span>
+          </summary>
+          <div class="faq-content"><div>
+            <div class="px-5 pb-5">
+              <div class="border-t border-slate-100 pt-4 flex gap-2.5">
+                <span class="text-amber-600 font-bold flex-shrink-0">A.</span>
+                <div class="flex-1 text-sm text-slate-800 leading-relaxed space-y-3">
+                  <p><strong class="text-slate-900">랜딩 페이지</strong> : 베이직 2회 / 스탠다드 3회 / 프리미엄 5회</p>
+                  <p><strong class="text-slate-900">업무 자동화</strong> : 베이직 2회 / 스탠다드 3회</p>
+                  <p class="text-stone-700">범위를 초과하는 수정은 추가 협의를 통해 별도 산정합니다.</p>
+                </div>
+              </div>
+            </div>
+          </div></div>
+        </details>
+
+        <details class="reveal group bg-white border border-slate-200 rounded-xl overflow-hidden">
+          <summary class="px-5 py-5 cursor-pointer flex items-baseline justify-between gap-4 hover:bg-slate-50 transition">
+            <span class="flex items-baseline gap-2.5 flex-1">
+              <span class="text-amber-600 font-bold flex-shrink-0">Q.</span>
+              <span class="font-semibold text-slate-900">업무 자동화 시 다른 사이트 정보를 가져올 수 있나요?</span>
+            </span>
+            <span class="faq-icon text-stone-500 text-xl leading-none flex-shrink-0">+</span>
+          </summary>
+          <div class="faq-content"><div>
+            <div class="px-5 pb-5">
+              <div class="border-t border-slate-100 pt-4 flex gap-2.5">
+                <span class="text-amber-600 font-bold flex-shrink-0">A.</span>
+                <div class="flex-1 text-sm text-slate-800 leading-relaxed space-y-3">
+                  <p>네, 가능합니다.</p>
+                  <p><strong class="text-slate-900">가능</strong> : 공공 API(나라장터, DART, 공공데이터포털), 공식 RSS, 로그인 불필요한 공개 페이지, 본인 운영 사이트.</p>
+                  <p><strong class="text-slate-900">거절</strong> : robots.txt 명시 거부 사이트, DB권 보호 정보집약 플랫폼(부동산, 채용, 숙박, 가격비교), 공식 API 제공 사이트의 크롤링 우회.</p>
+                </div>
+              </div>
+            </div>
+          </div></div>
+        </details>
+
+        <details class="reveal group bg-white border border-slate-200 rounded-xl overflow-hidden">
+          <summary class="px-5 py-5 cursor-pointer flex items-baseline justify-between gap-4 hover:bg-slate-50 transition">
+            <span class="flex items-baseline gap-2.5 flex-1">
+              <span class="text-amber-600 font-bold flex-shrink-0">Q.</span>
+              <span class="font-semibold text-slate-900">랜딩 페이지 및 업무 자동화 운영 관리도 해주시나요?</span>
+            </span>
+            <span class="faq-icon text-stone-500 text-xl leading-none flex-shrink-0">+</span>
+          </summary>
+          <div class="faq-content"><div>
+            <div class="px-5 pb-5">
+              <div class="border-t border-slate-100 pt-4 flex gap-2.5">
+                <span class="text-amber-600 font-bold flex-shrink-0">A.</span>
+                <div class="flex-1 text-sm text-slate-800 leading-relaxed space-y-3">
+                  <p>제공하지 않습니다. Victor Lab은 <strong class="text-slate-900">결과물 제작·전달까지</strong>만 담당하며, 정기 모니터링 운영은 진행하지 않습니다.</p>
+                  <p>결과물은 고객님 PC 또는 자체 서버에서 직접 실행하시는 형태로 전달드립니다.</p>
+                </div>
+              </div>
+            </div>
+          </div></div>
+        </details>
+
+        <details class="reveal group bg-white border border-slate-200 rounded-xl overflow-hidden">
+          <summary class="px-5 py-5 cursor-pointer flex items-baseline justify-between gap-4 hover:bg-slate-50 transition">
+            <span class="flex items-baseline gap-2.5 flex-1">
+              <span class="text-amber-600 font-bold flex-shrink-0">Q.</span>
+              <span class="font-semibold text-slate-900">결과물은 어떤 형태로 받나요?</span>
+            </span>
+            <span class="faq-icon text-stone-500 text-xl leading-none flex-shrink-0">+</span>
+          </summary>
+          <div class="faq-content"><div>
+            <div class="px-5 pb-5">
+              <div class="border-t border-slate-100 pt-4 flex gap-2.5">
+                <span class="text-amber-600 font-bold flex-shrink-0">A.</span>
+                <div class="flex-1 text-sm text-slate-800 leading-relaxed space-y-3">
+                  <p><strong class="text-slate-900">랜딩 페이지</strong> : 단일 HTML 파일 + 이미지 폴더</p>
+                  <p><strong class="text-slate-900">업무 자동화</strong> : 실행 파일(Python 스크립트, Excel 매크로 등)과 설치 및 사용 가이드를 전달드립니다.</p>
+                  <p class="text-stone-700">고객님 PC 또는 자체 서버에서 직접 실행하시는 형태이며, 텔레그램·이메일 알림은 고객님 계정으로 연동해드립니다.</p>
+                </div>
+              </div>
+            </div>
+          </div></div>
+        </details>
+
+        <details class="reveal group bg-white border border-slate-200 rounded-xl overflow-hidden">
+          <summary class="px-5 py-5 cursor-pointer flex items-baseline justify-between gap-4 hover:bg-slate-50 transition">
+            <span class="flex items-baseline gap-2.5 flex-1">
+              <span class="text-amber-600 font-bold flex-shrink-0">Q.</span>
+              <span class="font-semibold text-slate-900">API, 폰트, 이미지 비용은 따로 청구되나요?</span>
+            </span>
+            <span class="faq-icon text-stone-500 text-xl leading-none flex-shrink-0">+</span>
+          </summary>
+          <div class="faq-content"><div>
+            <div class="px-5 pb-5">
+              <div class="border-t border-slate-100 pt-4 flex gap-2.5">
+                <span class="text-amber-600 font-bold flex-shrink-0">A.</span>
+                <div class="flex-1 text-sm text-slate-800 leading-relaxed space-y-3">
+                  <p>아니오. 외부 API 사용료, 무료 폰트, 무료 스톡 이미지(Unsplash 등)는 작업비에 포함됩니다.</p>
+                  <p class="text-stone-700">단, 유료 폰트와 유료 이미지는 별도 협의합니다.</p>
+                </div>
+              </div>
+            </div>
+          </div></div>
+        </details>
+
+        <details class="reveal group bg-white border border-slate-200 rounded-xl overflow-hidden">
+          <summary class="px-5 py-5 cursor-pointer flex items-baseline justify-between gap-4 hover:bg-slate-50 transition">
+            <span class="flex items-baseline gap-2.5 flex-1">
+              <span class="text-amber-600 font-bold flex-shrink-0">Q.</span>
+              <span class="font-semibold text-slate-900">캡차 우회, 자동 로그인, 개인정보 수집은 가능한가요?</span>
+            </span>
+            <span class="faq-icon text-stone-500 text-xl leading-none flex-shrink-0">+</span>
+          </summary>
+          <div class="faq-content"><div>
+            <div class="px-5 pb-5">
+              <div class="border-t border-slate-100 pt-4 flex gap-2.5">
+                <span class="text-amber-600 font-bold flex-shrink-0">A.</span>
+                <div class="flex-1 text-sm text-slate-800 leading-relaxed space-y-3">
+                  <p><strong class="text-slate-900">불가합니다.</strong></p>
+                  <p>캡차 우회, 자동 로그인은 사이트 약관 위반, 이메일·전화번호 자동 수집은 정보통신망법 위반 소지가 있어 의뢰 자체를 받지 않습니다.</p>
+                </div>
+              </div>
+            </div>
+          </div></div>
+        </details>
+
+        <details class="reveal group bg-white border border-slate-200 rounded-xl overflow-hidden">
+          <summary class="px-5 py-5 cursor-pointer flex items-baseline justify-between gap-4 hover:bg-slate-50 transition">
+            <span class="flex items-baseline gap-2.5 flex-1">
+              <span class="text-amber-600 font-bold flex-shrink-0">Q.</span>
+              <span class="font-semibold text-slate-900">시안 받고 진행이 어려워졌어요. 환불되나요?</span>
+            </span>
+            <span class="faq-icon text-stone-500 text-xl leading-none flex-shrink-0">+</span>
+          </summary>
+          <div class="faq-content"><div>
+            <div class="px-5 pb-5">
+              <div class="border-t border-slate-100 pt-4 flex gap-2.5">
+                <span class="text-amber-600 font-bold flex-shrink-0">A.</span>
+                <div class="flex-1 text-sm text-slate-800 leading-relaxed space-y-3">
+                  <p>단계별 환불 비율을 안내드립니다.</p>
+                  <p><strong class="text-slate-900">작업 착수 전 100%</strong>, 기획·설계 단계 70%, 1차 시안 전달 후 30%까지 환불됩니다.</p>
+                  <p class="text-stone-700">최종 컨펌 후에는 환불되지 않습니다.</p>
+                </div>
+              </div>
+            </div>
+          </div></div>
+        </details>
+
+        <details class="reveal group bg-white border border-slate-200 rounded-xl overflow-hidden">
+          <summary class="px-5 py-5 cursor-pointer flex items-baseline justify-between gap-4 hover:bg-slate-50 transition">
+            <span class="flex items-baseline gap-2.5 flex-1">
+              <span class="text-amber-600 font-bold flex-shrink-0">Q.</span>
+              <span class="font-semibold text-slate-900">수정은 몇 번까지 무료인가요?</span>
+            </span>
+            <span class="faq-icon text-stone-500 text-xl leading-none flex-shrink-0">+</span>
+          </summary>
+          <div class="faq-content"><div>
+            <div class="px-5 pb-5">
+              <div class="border-t border-slate-100 pt-4 flex gap-2.5">
+                <span class="text-amber-600 font-bold flex-shrink-0">A.</span>
+                <div class="flex-1 text-sm text-slate-800 leading-relaxed space-y-3">
+                  <p>시안 단계 2회, 시안 컨펌 후 세부 수정 3회까지 무료입니다.</p>
+                  <p>무료 횟수 초과 시 <strong class="text-slate-900">회당 5만원</strong>의 추가 비용이 발생합니다.</p>
+                  <p class="text-stone-700">단, 단순 텍스트 오타나 문구 수정 같은 경미한 수정은 횟수에 산입하지 않습니다.</p>
+                </div>
+              </div>
+            </div>
+          </div></div>
+        </details>
+
+        <details class="reveal group bg-white border border-slate-200 rounded-xl overflow-hidden">
+          <summary class="px-5 py-5 cursor-pointer flex items-baseline justify-between gap-4 hover:bg-slate-50 transition">
+            <span class="flex items-baseline gap-2.5 flex-1">
+              <span class="text-amber-600 font-bold flex-shrink-0">Q.</span>
+              <span class="font-semibold text-slate-900">납품 후 문제가 생기면요?</span>
+            </span>
+            <span class="faq-icon text-stone-500 text-xl leading-none flex-shrink-0">+</span>
+          </summary>
+          <div class="faq-content"><div>
+            <div class="px-5 pb-5">
+              <div class="border-t border-slate-100 pt-4 flex gap-2.5">
+                <span class="text-amber-600 font-bold flex-shrink-0">A.</span>
+                <div class="flex-1 text-sm text-slate-800 leading-relaxed space-y-3">
+                  <p>납품일로부터 <strong class="text-slate-900">7일 이내</strong> 발견된 명백한 결함(레이아웃 깨짐, 링크 오류, 명세서 명시 기능 미동작)은 무상으로 수정합니다.</p>
+                  <p class="text-stone-700">7일 경과 후 또는 신규 요구사항은 별도 견적으로 진행됩니다.</p>
+                </div>
+              </div>
+            </div>
+          </div></div>
+        </details>
+
+        <p class="text-xs text-slate-500 text-center mt-2 reveal">
+          예외 및 세부 조건은 <a href="/policies/refund.html" class="text-amber-700 hover:underline font-medium">전체 환불 및 작업 정책</a>에서 확인하실 수 있습니다.
+        </p>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-16 sm:py-20 md:py-28 relative overflow-hidden bg-gradient-to-br from-[#FFFAF0] via-amber-50/60 to-orange-50/40">
+    <div class="absolute -top-40 -right-40 w-96 h-96 bg-amber-300/25 rounded-full blur-3xl"></div>
+    <div class="absolute -bottom-40 -left-40 w-96 h-96 bg-rose-200/30 rounded-full blur-3xl"></div>
+
+    <div class="relative max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="reveal mb-8 md:mb-10">
+        <div class="text-xs sm:text-sm font-semibold text-amber-700 uppercase tracking-widest mb-3">CONTACT</div>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-4 gradient-text">문의하기</h2>
+        <p class="text-slate-800 leading-relaxed">랜딩 페이지 또는 자동화, 어떤 걸로 시작해 보시겠어요?</p>
+      </div>
+
+
+      <form id="contact-form" class="reveal glass-card rounded-2xl p-5 sm:p-7 space-y-7 shadow-lg shadow-amber-900/10">
+        <!-- 연락처 -->
+        <div class="space-y-4">
+          <div class="flex items-baseline gap-2">
+            <h3 class="text-sm font-semibold text-amber-900">연락처</h3>
+            <span class="text-[11px] text-stone-500">회신을 위한 정보입니다</span>
+          </div>
+          <div class="grid md:grid-cols-3 gap-4">
+            <div>
+              <label class="block text-sm font-medium text-stone-700 mb-1.5">성함 / 닉네임</label>
+              <input type="text" name="name" required class="w-full bg-white border border-amber-200 rounded-lg px-3.5 py-2.5 text-stone-900 placeholder-stone-400 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-300/40 transition" placeholder="홍길동" />
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-stone-700 mb-1.5">이메일 또는 카톡 ID</label>
+              <input type="text" name="contact" required class="w-full bg-white border border-amber-200 rounded-lg px-3.5 py-2.5 text-stone-900 placeholder-stone-400 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-300/40 transition" placeholder="hello@example.com" />
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-stone-700 mb-1.5">핸드폰 <span class="text-stone-400 font-normal">(선택)</span></label>
+              <input type="tel" name="phone" class="w-full bg-white border border-amber-200 rounded-lg px-3.5 py-2.5 text-stone-900 placeholder-stone-400 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-300/40 transition" placeholder="010-0000-0000" />
+            </div>
+          </div>
+        </div>
+
+        <!-- 프로젝트 정보 -->
+        <div class="space-y-4 pt-6 border-t border-amber-200/50">
+          <div class="flex items-baseline gap-2">
+            <h3 class="text-sm font-semibold text-amber-900">프로젝트 정보</h3>
+            <span class="text-[11px] font-medium text-amber-700 bg-amber-100/70 px-2 py-0.5 rounded-full">필수</span>
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-stone-700 mb-1.5">관심 패키지</label>
+            <select name="package" id="package-select" class="w-full bg-white border border-amber-200 rounded-lg px-3.5 py-2.5 text-stone-900 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-300/40 transition">
+              <optgroup label="랜딩 페이지">
+                <option value="lp-basic">랜딩 베이직 (25만원~)</option>
+                <option value="lp-standard" selected>랜딩 스탠다드 (35만원~)</option>
+                <option value="lp-premium">랜딩 프리미엄 (60만원~)</option>
+              </optgroup>
+              <optgroup label="업무 자동화">
+                <option value="data-basic">자동화 베이직 (25만원~)</option>
+                <option value="data-standard">자동화 스탠다드 (35만원~)</option>
+                <option value="data-premium">자동화 프리미엄 (100만원~)</option>
+              </optgroup>
+              <option value="maintenance">사이트 수정 및 유지보수 (5만원~)</option>
+              <option value="undecided">아직 정하지 않음</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-stone-700 mb-1.5">의뢰 제목</label>
+            <input type="text" name="q_title" required minlength="3" class="w-full bg-white border border-amber-200 rounded-lg px-3.5 py-2.5 text-stone-900 placeholder-stone-400 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-300/40 transition" placeholder="신규 베이커리 오픈용 랜딩 페이지" />
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-stone-700 mb-1.5">사업 / 서비스 소개</label>
+            <textarea name="q_business" rows="3" required minlength="20" class="w-full bg-white border border-amber-200 rounded-lg px-3.5 py-2.5 text-stone-900 placeholder-stone-400 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-300/40 transition resize-none" placeholder="어떤 업종이고, 무엇을 판매/제공하는지 알려주세요. 운영 중인 사이트나 SNS가 있다면 함께 적어주세요."></textarea>
+            <p class="mt-1 text-[11px] text-stone-500">20자 이상</p>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-sm font-medium text-stone-700 mb-1.5">의뢰 목적</label>
+              <input type="text" name="q_purpose" required minlength="4" class="w-full bg-white border border-amber-200 rounded-lg px-3.5 py-2.5 text-stone-900 placeholder-stone-400 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-300/40 transition" placeholder="신규 고객 유입, 예약 받기" />
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-stone-700 mb-1.5">타겟 고객</label>
+              <input type="text" name="q_target" required minlength="4" class="w-full bg-white border border-amber-200 rounded-lg px-3.5 py-2.5 text-stone-900 placeholder-stone-400 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-300/40 transition" placeholder="20~30대 직장인, 인근 주민" />
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-stone-700 mb-1.5">희망 기능</label>
+            <textarea name="q_features" rows="3" required minlength="15" class="w-full bg-white border border-amber-200 rounded-lg px-3.5 py-2.5 text-stone-900 placeholder-stone-400 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-300/40 transition resize-none" placeholder="카카오 문의 버튼, 네이버 예약 연동, 포트폴리오 갤러리, 메뉴 소개 등 필요한 기능을 적어주세요."></textarea>
+            <p class="mt-1 text-[11px] text-stone-500">15자 이상</p>
+          </div>
+        </div>
+
+        <!-- 추가 정보 -->
+        <div class="space-y-4 pt-6 border-t border-amber-200/50">
+          <div class="flex items-baseline gap-2">
+            <h3 class="text-sm font-semibold text-amber-900">추가 정보</h3>
+            <span class="text-[11px] text-stone-500">알려주시면 더 정확하게 회신드립니다</span>
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-stone-700 mb-1.5">보유 자료</label>
+            <input type="text" name="q_assets" class="w-full bg-white border border-amber-200 rounded-lg px-3.5 py-2.5 text-stone-900 placeholder-stone-400 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-300/40 transition" placeholder="로고 있음, 사진 있음, 본문 작성 가능" />
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-sm font-medium text-stone-700 mb-1.5">참고 사이트</label>
+              <input type="text" name="q_refs" class="w-full bg-white border border-amber-200 rounded-lg px-3.5 py-2.5 text-stone-900 placeholder-stone-400 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-300/40 transition" placeholder="마음에 드는 사이트 링크 1-3개" />
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-stone-700 mb-1.5">희망 일정</label>
+              <input type="text" name="q_schedule" class="w-full bg-white border border-amber-200 rounded-lg px-3.5 py-2.5 text-stone-900 placeholder-stone-400 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-300/40 transition" placeholder="5월 말까지 오픈 희망" />
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-stone-700 mb-1.5">기타 요청사항</label>
+            <textarea name="q_extra" rows="2" class="w-full bg-white border border-amber-200 rounded-lg px-3.5 py-2.5 text-stone-900 placeholder-stone-400 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-300/40 transition resize-none" placeholder="추가로 전달하고 싶은 내용이 있다면 자유롭게 적어주세요."></textarea>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pt-2">
+          <p class="text-xs text-stone-600 max-w-md leading-relaxed">
+            의뢰 가능 범위는 위 안내와 FAQ를 참고해 주세요.
+          </p>
+          <button type="submit" class="inline-flex items-center justify-center gap-2 gold-cta px-6 py-3 rounded-lg font-medium group whitespace-nowrap shrink-0">
+            의뢰하기
+            <svg class="w-4 h-4 group-hover:translate-x-0.5 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </button>
+        </div>
+
+        <div id="form-status" class="hidden text-sm rounded-lg p-3.5"></div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-stone-950 text-stone-400 py-10 border-t border-amber-900/20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-sm">
+      <div class="flex items-center gap-2">
+        <span class="inline-flex items-center justify-center w-6 h-6 rounded gold-cta">
+          <span class="text-[11px] font-bold">V</span>
+        </span>
+        <span class="text-amber-100">Victor Lab</span>
+        <span class="text-amber-900/60">-</span>
+        <span>lab.victor-jk.com</span>
+      </div>
+      <div class="flex flex-col sm:flex-row items-start sm:items-center gap-1.5 sm:gap-3 text-xs text-stone-500">
+        <a href="/policies/refund.html" class="hover:text-amber-300 transition">환불 및 작업 정책</a>
+        <span class="hidden sm:inline text-stone-700" aria-hidden="true">|</span>
+        <span>© 2026 Victor Lab. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <a id="kakao-btn" href="https://pf.kakao.com/_PNDxbX/chat" target="_blank" rel="noopener noreferrer" aria-label="카톡으로 문의하기" title="카톡 문의">
+    <svg class="w-5 h-5 sm:w-[22px] sm:h-[22px]" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.5C6.5 3.5 2 7 2 11.3c0 2.7 1.8 5.1 4.6 6.5l-.9 3.4c-.1.4.3.7.6.5l4-2.6c.5.1 1.1.1 1.7.1 5.5 0 10-3.5 10-7.9S17.5 3.5 12 3.5z"/></svg>
+  </a>
+
+  <button id="top-btn" type="button" aria-label="맨 위로 이동">
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+  </button>
+
+  <script>
+    // Twemoji - convert all static emojis to bright SVG
+    if (window.twemoji) {
+      twemoji.parse(document.body);
+    }
+
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    const menuIcon = document.getElementById('menu-icon');
+    menuBtn.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+      menuIcon.innerHTML = menu.classList.contains('hidden')
+        ? '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>'
+        : '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>';
+    });
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      menu.classList.add('hidden');
+      menuIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>';
+    }));
+
+    // Hero greeting typing effect (looping)
+    (function () {
+      const greetings = [
+        '좋은 하루 되세요! ☀️',
+        'Victor Lab에 오신 것을 환영합니다. ✨',
+        '오늘도 화이팅이에요 💪',
+        '찾아주셔서 감사합니다. 🙏',
+        '어떤 일을 맡기시겠어요? ✏️',
+        '커피 한 잔 하시면서 둘러보세요. 🥐',
+        '오늘도 따뜻한 하루되세요. 🌷'
+      ];
+      const el = document.getElementById('greeting-text');
+      if (!el) return;
+      let lastIndex = -1;
+      let currentText = '';
+      function pick() {
+        let idx;
+        do { idx = Math.floor(Math.random() * greetings.length); }
+        while (idx === lastIndex && greetings.length > 1);
+        lastIndex = idx;
+        return greetings[idx];
+      }
+      function startTyping() {
+        const chars = [...pick()];
+        currentText = '';
+        let i = 0;
+        (function typeChar() {
+          if (i <= chars.length) {
+            currentText = chars.slice(0, i).join('');
+            el.textContent = currentText;
+            if (i === chars.length && window.twemoji) {
+              window.twemoji.parse(el);
+            }
+            i++;
+            setTimeout(typeChar, 130 + Math.random() * 90);
+          } else {
+            setTimeout(eraseAll, 2400);
+          }
+        })();
+      }
+      function eraseAll() {
+        const arr = [...currentText];
+        if (arr.length > 0) {
+          arr.pop();
+          currentText = arr.join('');
+          el.textContent = currentText;
+          setTimeout(eraseAll, 32 + Math.random() * 22);
+        } else {
+          setTimeout(startTyping, 380);
+        }
+      }
+      setTimeout(startTyping, 350);
+    })();
+
+    // Reveal on scroll (with stagger for grid siblings)
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.05, rootMargin: '0px 0px -8% 0px' });
+    document.querySelectorAll('.reveal').forEach(el => {
+      const parent = el.parentElement;
+      if (parent) {
+        const isGrid = parent.classList.contains('grid') || getComputedStyle(parent).display === 'grid';
+        if (isGrid) {
+          const siblings = [...parent.querySelectorAll(':scope > .reveal')];
+          const idx = siblings.indexOf(el);
+          if (idx > 0 && idx < 8) el.style.setProperty('--reveal-delay', (idx * 110) + 'ms');
+        }
+      }
+      io.observe(el);
+    });
+
+    // Smooth scroll (Lenis) + TOP button + anchor links
+    (function () {
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      let lenis = null;
+      if (window.Lenis && !reduceMotion) {
+        lenis = new Lenis({
+          duration: 1.15,
+          easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+          smoothWheel: true,
+          wheelMultiplier: 1,
+          touchMultiplier: 1.4,
+        });
+        function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+        requestAnimationFrame(raf);
+      }
+
+      const scrollTo = (target, offset = -72) => {
+        if (lenis) lenis.scrollTo(target, { offset, duration: 1.2 });
+        else if (typeof target === 'number') window.scrollTo({ top: target, behavior: 'smooth' });
+        else if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      };
+
+      // Anchor links → smooth scroll via Lenis
+      document.querySelectorAll('a[href^="#"]').forEach(a => {
+        const href = a.getAttribute('href');
+        if (!href || href === '#' || href.length < 2) return;
+        a.addEventListener('click', (e) => {
+          const el = document.querySelector(href);
+          if (!el) return;
+          e.preventDefault();
+          scrollTo(el);
+        });
+      });
+
+      // TOP button + Kakao lift
+      const topBtn = document.getElementById('top-btn');
+      const kakaoBtn = document.getElementById('kakao-btn');
+      if (topBtn) {
+        let ticking = false;
+        const update = () => {
+          const past = window.scrollY > 600;
+          topBtn.classList.toggle('show', past);
+          if (kakaoBtn) kakaoBtn.classList.toggle('lifted', past);
+          ticking = false;
+        };
+        window.addEventListener('scroll', () => {
+          if (!ticking) { requestAnimationFrame(update); ticking = true; }
+        }, { passive: true });
+        update();
+        topBtn.addEventListener('click', () => scrollTo(0, 0));
+      }
+    })();
+
+    // Pricing card → contact form package preselect
+    document.querySelectorAll('.contact-jump').forEach(a => {
+      a.addEventListener('click', () => {
+        const pkg = a.getAttribute('data-package');
+        const sel = document.getElementById('package-select');
+        if (sel && pkg) sel.value = pkg;
+      });
+    });
+
+    // Contact form → Telegram
+    document.getElementById('contact-form').addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const status = document.getElementById('form-status');
+      const data = new FormData(this);
+      const name = data.get('name') || '';
+      const contact = data.get('contact') || '';
+      const phone = data.get('phone') || '';
+      const pkg = data.get('package') || '';
+
+      const sections = [
+        ['1. 의뢰 제목', data.get('q_title')],
+        ['2. 사업/서비스 소개', data.get('q_business')],
+        ['3. 의뢰 목적', data.get('q_purpose')],
+        ['4. 타겟 고객', data.get('q_target')],
+        ['5. 희망 기능', data.get('q_features')],
+        ['6. 보유 자료', data.get('q_assets')],
+        ['7. 참고 사이트', data.get('q_refs')],
+        ['8. 희망 일정', data.get('q_schedule')],
+        ['9. 기타 요청사항', data.get('q_extra')]
+      ];
+      const message = sections
+        .map(([k, v]) => [k, (v || '').trim()])
+        .filter(([_, v]) => v.length > 0)
+        .map(([k, v]) => `${k}\n${v}`)
+        .join('\n\n');
+
+      try {
+        const res = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name,
+            contact,
+            phone,
+            package: pkg,
+            message
+          })
+        });
+        if (res.ok) {
+          status.className = 'text-sm rounded-lg p-3.5 bg-amber-500/10 text-amber-800 border border-amber-300/60';
+          status.textContent = '의뢰 접수되었습니다. 검토 후 회신드리겠습니다.';
+          this.reset();
+        } else {
+          throw new Error();
+        }
+      } catch {
+        status.className = 'text-sm rounded-lg p-3.5 bg-red-500/10 text-red-400 border border-red-500/20';
+        status.textContent = '전송 중 오류가 발생했습니다. 카카오톡으로 직접 문의해 주세요.';
+      }
+
+      status.classList.remove('hidden');
+      setTimeout(() => status.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 100);
+    });
+
+    // AURA thumbnail scale - keeps 400×300 content fitted to actual thumbnail width
+    (function () {
+      const wrap = document.getElementById('aura-thumb-wrap');
+      const content = document.getElementById('aura-thumb-content');
+      if (!wrap || !content) return;
+      function scale() {
+        content.style.transform = 'scale(' + (wrap.offsetWidth / 400) + ')';
+      }
+      scale();
+      new ResizeObserver(scale).observe(wrap);
+    })();
+
+    // AXIS thumbnail scale
+    (function () {
+      const wrap = document.getElementById('axis-thumb-wrap');
+      const content = document.getElementById('axis-thumb-content');
+      if (!wrap || !content) return;
+      function scale() {
+        content.style.transform = 'scale(' + (wrap.offsetWidth / 400) + ')';
+      }
+      scale();
+      new ResizeObserver(scale).observe(wrap);
+    })();
+
+    // Excel thumbnail scale
+    (function () {
+      const wrap = document.getElementById('excel-thumb-wrap');
+      const content = document.getElementById('excel-thumb-content');
+      if (!wrap || !content) return;
+      function scale() {
+        content.style.transform = 'scale(' + (wrap.offsetWidth / 400) + ')';
+      }
+      scale();
+      new ResizeObserver(scale).observe(wrap);
+    })();
+
+    // Crawl thumbnail scale
+    (function () {
+      const wrap = document.getElementById('crawl-thumb-wrap');
+      const content = document.getElementById('crawl-thumb-content');
+      if (!wrap || !content) return;
+      function scale() {
+        content.style.transform = 'scale(' + (wrap.offsetWidth / 400) + ')';
+      }
+      scale();
+      new ResizeObserver(scale).observe(wrap);
+    })();
+
+    // DART thumbnail scale
+    (function () {
+      const wrap = document.getElementById('dart-thumb-wrap');
+      const content = document.getElementById('dart-thumb-content');
+      if (!wrap || !content) return;
+      function scale() {
+        content.style.transform = 'scale(' + (wrap.offsetWidth / 400) + ')';
+      }
+      scale();
+      new ResizeObserver(scale).observe(wrap);
+    })();
+
+    // OKUM thumbnail scale
+    (function () {
+      const wrap = document.getElementById('okum-thumb-wrap');
+      const content = document.getElementById('okum-thumb-content');
+      if (!wrap || !content) return;
+      function scale() {
+        content.style.transform = 'scale(' + (wrap.offsetWidth / 400) + ')';
+      }
+      scale();
+      new ResizeObserver(scale).observe(wrap);
+    })();
+
+    // NUMEN thumbnail scale
+    (function () {
+      const wrap = document.getElementById('numen-thumb-wrap');
+      const content = document.getElementById('numen-thumb-content');
+      if (!wrap || !content) return;
+      function scale() {
+        content.style.transform = 'scale(' + (wrap.offsetWidth / 400) + ')';
+      }
+      scale();
+      new ResizeObserver(scale).observe(wrap);
+    })();
+
+    // TEMPO thumbnail scale
+    (function () {
+      const wrap = document.getElementById('tempo-thumb-wrap');
+      const content = document.getElementById('tempo-thumb-content');
+      if (!wrap || !content) return;
+      function scale() {
+        content.style.transform = 'scale(' + (wrap.offsetWidth / 400) + ')';
+      }
+      scale();
+      new ResizeObserver(scale).observe(wrap);
+    })();
+
+    // ORBIN thumbnail scale
+    (function () {
+      const wrap = document.getElementById('orbin-thumb-wrap');
+      const content = document.getElementById('orbin-thumb-content');
+      if (!wrap || !content) return;
+      function scale() {
+        content.style.transform = 'scale(' + (wrap.offsetWidth / 400) + ')';
+      }
+      scale();
+      new ResizeObserver(scale).observe(wrap);
+    })();
+  </script>
+</body>
+</html>

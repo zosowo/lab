@@ -1,0 +1,28 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+*~
+
+# Claude local settings
+.claude/
+
+# Portfolio symlinks (point outside repo to /home/zosowo/income/order/)
+/app
+/auto
+/halden_studio
+/numen
+/okinawa
+/okum
+/orbin
+/service
+/tempo_society
+
+# Node deps
+node_modules/
+
+# Generated portfolio captures (regeneratable via portfolio_shots/capture.mjs)
+portfolio_shots/output/
+
+# Local backups
+_backup_*

@@ -1,0 +1,12 @@
+{
+  "name": "portfolio-shots",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "capture": "node capture.mjs"
+  },
+  "dependencies": {
+    "playwright": "^1.59.1",
+    "sharp": "^0.34.5"
+  }
+}

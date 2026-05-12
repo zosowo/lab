@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>환불 및 작업 정책 | Victor Lab</title>
+  <meta name="description" content="Victor Lab 외주 프로젝트의 환불 기준, 수정 횟수, 납품 후 결함 대응에 대한 안내입니다." />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    body { font-family: 'Inter', system-ui, -apple-system, 'Apple SD Gothic Neo', 'Pretendard', sans-serif; }
+    /* Smooth scroll (Lenis) */
+    html.lenis, html.lenis body { height: auto; }
+    html.lenis { scroll-behavior: auto !important; }
+    .lenis.lenis-smooth { scroll-behavior: auto !important; }
+    .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+    .lenis.lenis-stopped { overflow: clip; }
+    /* Article style */
+    .prose h2 { font-size: 1.25rem; font-weight: 700; color: #0f172a; margin-top: 2rem; margin-bottom: 0.75rem; padding-bottom: 0.5rem; border-bottom: 1px solid #fde68a; }
+    .prose h3 { font-size: 1rem; font-weight: 600; color: #1e293b; margin-top: 1.25rem; margin-bottom: 0.5rem; }
+    .prose p, .prose li { font-size: 0.95rem; color: #334155; line-height: 1.75; }
+    .prose ul { padding-left: 1.25rem; margin: 0.5rem 0 1rem; }
+    .prose ul li { list-style: disc; margin-bottom: 0.25rem; }
+    .prose strong { color: #0f172a; }
+    .prose table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.92rem; }
+    .prose th, .prose td { border: 1px solid #e2e8f0; padding: 0.6rem 0.8rem; text-align: left; vertical-align: top; }
+    .prose th { background: #fff7ed; color: #92400e; font-weight: 600; }
+    .meta { font-size: 0.85rem; color: #64748b; }
+    /* TOP button */
+    #top-btn {
+      position: fixed; right: 18px; bottom: 18px;
+      width: 44px; height: 44px; border-radius: 9999px;
+      display: inline-flex; align-items: center; justify-content: center;
+      background: linear-gradient(135deg, #F59E0B 0%, #D97706 50%, #B45309 100%);
+      color: #FFFAF0;
+      box-shadow: 0 12px 28px -8px rgba(217, 119, 6, 0.55), inset 0 1px 0 rgba(255, 250, 240, 0.25), inset 0 -1px 0 rgba(120, 53, 15, 0.25);
+      opacity: 0; pointer-events: none; transform: translateY(8px);
+      transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s ease, filter 0.25s ease;
+      z-index: 60; border: 0; cursor: pointer;
+    }
+    #top-btn.show { opacity: 1; pointer-events: auto; transform: translateY(0); }
+    #top-btn:hover { box-shadow: 0 16px 36px -8px rgba(217, 119, 6, 0.7); filter: brightness(1.05); }
+    #top-btn:active { transform: translateY(1px); }
+    @media (min-width: 640px) {
+      #top-btn { right: 28px; bottom: 28px; width: 48px; height: 48px; }
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js"></script>
+</head>
+<body class="bg-gradient-to-b from-white to-[#FFFAF0] min-h-screen">
+
+  <header class="border-b border-amber-200/40 bg-white/80 backdrop-blur sticky top-0 z-40">
+    <div class="max-w-3xl mx-auto px-5 py-4 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2 font-bold text-slate-900">
+        <img src="/favicon.svg" alt="" width="22" height="22" />
+        <span>Victor Lab</span>
+      </a>
+      <a href="/#faq" class="text-sm text-slate-600 hover:text-amber-700 transition">← 메인으로</a>
+    </div>
+  </header>
+
+  <main class="max-w-3xl mx-auto px-5 sm:px-6 py-10 sm:py-14">
+
+    <div class="text-xs sm:text-sm font-semibold text-amber-700 uppercase tracking-widest mb-3">Refund Policy</div>
+    <h1 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-2">환불 및 작업 정책</h1>
+    <p class="meta mb-8">최종 개정일: 2026-05-09</p>
+
+    <article class="prose">
+
+      <p>본 정책은 Victor Lab으로 의뢰된 모든 외주 프로젝트에 적용됩니다. 의뢰 확정(견적 합의 및 계약금 입금) 시점부터 효력이 발생하며, 의뢰자가 이의를 제기하지 않는 한 동의한 것으로 간주합니다.</p>
+
+      <h2>1. 적용 범위</h2>
+      <ul>
+        <li>Victor Lab 카카오톡 채널 등 직접 채널을 통해 의뢰된 프로젝트에 적용됩니다.</li>
+        <li>크몽을 통한 의뢰는 <strong>크몽 자체 환불 규정이 우선 적용</strong>되며, 크몽 규정에서 정하지 않은 세부 사항은 본 정책을 보조적으로 따릅니다.</li>
+        <li>본 정책에 명시되지 않은 사항은 의뢰자와 Victor Lab 간 별도 협의로 정합니다.</li>
+      </ul>
+
+      <h2>2. 작업 단계 정의</h2>
+      <table>
+        <thead><tr><th>단계</th><th>정의</th></tr></thead>
+        <tbody>
+          <tr><td>계약 단계</td><td>견적 합의 및 계약금 입금 완료 (작업 미착수)</td></tr>
+          <tr><td>기획·설계 단계</td><td>요구사항 분석, 와이어프레임, 구조 설계 진행 중</td></tr>
+          <tr><td>1차 시안 단계</td><td>디자인 또는 초안 시안 전달</td></tr>
+          <tr><td>수정 단계</td><td>시안 기반 세부 수정 진행</td></tr>
+          <tr><td>최종 컨펌 단계</td><td>의뢰자 컨펌 완료</td></tr>
+          <tr><td>납품 단계</td><td>결과물 전달 및 인수인계 완료</td></tr>
+        </tbody>
+      </table>
+
+      <h2>3. 단계별 환불 기준</h2>
+      <table>
+        <thead><tr><th>환불 신청 시점</th><th>환불 비율</th></tr></thead>
+        <tbody>
+          <tr><td>작업 착수 전</td><td><strong>100%</strong></td></tr>
+          <tr><td>기획·설계 단계</td><td>70%</td></tr>
+          <tr><td>1차 시안 전달 후</td><td>30%</td></tr>
+          <tr><td>최종 컨펌 후</td><td>환불 불가</td></tr>
+          <tr><td>납품 완료 후</td><td>환불 불가</td></tr>
+        </tbody>
+      </table>
+      <ul>
+        <li>환불 비율은 <strong>이미 결제된 금액 기준</strong>입니다.</li>
+        <li>분할 결제(계약금·중도금·잔금)인 경우, 해당 시점까지 결제된 금액에 위 비율을 적용합니다.</li>
+      </ul>
+
+      <h2>4. 수정 횟수 및 추가 작업</h2>
+      <h3>기본 제공 수정 횟수</h3>
+      <ul>
+        <li><strong>시안 단계</strong>: 2회 무료 수정</li>
+        <li><strong>시안 컨펌 후 세부 수정</strong>: 3회 무료 수정</li>
+      </ul>
+      <h3>추가 수정</h3>
+      <ul>
+        <li>무료 횟수 초과 시 <strong>회당 5만원</strong>의 추가 비용이 발생합니다.</li>
+        <li>초기 요구사항 명세서 범위를 벗어나는 신규 기능·페이지·디자인 변경은 별도 견적으로 진행됩니다.</li>
+      </ul>
+      <h3>수정 요청 가이드</h3>
+      <ul>
+        <li>수정 요청은 가급적 한 번에 모아서 전달해주시면 작업 효율과 품질이 올라갑니다.</li>
+        <li>단순 텍스트 오타·이미지 교체 등 경미한 수정은 횟수에 산입하지 않습니다.</li>
+      </ul>
+
+      <h2>5. 납품 후 결함 대응</h2>
+      <ul>
+        <li>납품일로부터 <strong>7일 이내</strong> 발견된 <strong>명백한 결함</strong>은 무상으로 수정합니다. (예: 레이아웃 깨짐, 링크 오류, 의뢰 명세서에 명시된 기능 미동작)</li>
+        <li>다음의 경우는 유상 작업으로 처리됩니다.
+          <ul>
+            <li>납품 후 7일 경과</li>
+            <li>명세서 범위를 벗어난 신규 요구사항</li>
+            <li>의뢰자 환경 변경(서버 이전, 외부 서비스 정책 변경 등)에 의한 수정</li>
+            <li>단순 변심에 의한 디자인·구조 변경</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h2>6. 환불이 불가능한 경우</h2>
+      <ul>
+        <li>의뢰자의 <strong>단순 변심</strong>, 사업 방향 전환, 예산 상황 변동 등 의뢰자 사정으로 프로젝트를 중단하는 경우, 진행 단계까지의 비용은 환수되지 않습니다.</li>
+        <li>의뢰자의 <strong>자료 미제공·연락 두절</strong>로 14일 이상 작업이 중단된 경우, Victor Lab은 진행 단계 기준으로 정산 후 프로젝트를 종료할 수 있습니다.</li>
+        <li>결과물을 의뢰자가 <strong>이미 사용·게시·공개</strong>한 이후에는 환불이 불가합니다.</li>
+        <li>의뢰자가 제공한 자료(이미지·텍스트·서드파티 콘텐츠)의 저작권 문제로 발생한 수정·삭제 비용은 환불 사유에 해당하지 않습니다.</li>
+      </ul>
+
+      <h2>7. Victor Lab 귀책 시</h2>
+      <p>다음의 경우는 의뢰자가 환불 비율과 무관하게 추가 보상을 요구할 수 있습니다.</p>
+      <ul>
+        <li>협의된 납기를 정당한 사유 없이 14일 이상 초과한 경우</li>
+        <li>합의된 명세서를 현저히 위반한 결과물을 제공한 경우</li>
+        <li>Victor Lab의 일방적 작업 중단</li>
+      </ul>
+      <p>위 경우 의뢰자는 100% 환불 또는 별도 협의에 따른 보상을 요청할 수 있습니다.</p>
+
+      <h2>8. 환불 신청 절차</h2>
+      <ol class="list-decimal pl-5 space-y-1">
+        <li>Victor Lab 카카오톡 채널로 환불 사유와 진행 단계 명시하여 신청</li>
+        <li>Victor Lab 측 진행 내역 확인 및 환불 비율 안내 (영업일 기준 2일 이내 회신)</li>
+        <li>상호 합의 후 환불 처리 (영업일 기준 5일 이내 입금)</li>
+      </ol>
+
+      <h2>9. 분쟁 해결</h2>
+      <ul>
+        <li>본 정책에 관한 분쟁은 우선 상호 협의로 해결합니다.</li>
+        <li>협의가 이루어지지 않는 경우 의뢰자 주소지 관할 법원을 합의관할로 합니다.</li>
+        <li>크몽 의뢰 건은 크몽 분쟁 조정 절차를 우선 따릅니다.</li>
+      </ul>
+
+      <h2>10. 정책 개정</h2>
+      <p>본 정책은 사전 고지 후 개정될 수 있으며, 개정 시점 이전에 의뢰가 확정된 프로젝트는 의뢰 확정 당시 정책을 따릅니다.</p>
+
+      <p class="mt-8 pt-6 border-t border-slate-200 text-sm text-slate-600">
+        문의: <a href="https://pf.kakao.com/_PNDxbX/chat" target="_blank" rel="noopener noreferrer" class="text-amber-700 hover:underline font-medium">Victor Lab 카카오톡 채널</a>
+      </p>
+    </article>
+  </main>
+
+  <footer class="border-t border-amber-200/40 bg-white">
+    <div class="max-w-3xl mx-auto px-5 py-6 text-center text-xs text-slate-500">
+      © Victor Lab. <a href="/" class="hover:text-amber-700">lab.victor-jk.com</a>
+    </div>
+  </footer>
+
+  <button id="top-btn" type="button" aria-label="맨 위로 이동">
+    <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+  </button>
+  <script>
+    (function () {
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      let lenis = null;
+      if (window.Lenis && !reduceMotion) {
+        lenis = new Lenis({
+          duration: 1.15,
+          easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+          smoothWheel: true, wheelMultiplier: 1, touchMultiplier: 1.4,
+        });
+        function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+        requestAnimationFrame(raf);
+      }
+      const scrollTo = (target, offset = -72) => {
+        if (lenis) lenis.scrollTo(target, { offset, duration: 1.2 });
+        else if (typeof target === 'number') window.scrollTo({ top: target, behavior: 'smooth' });
+        else if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      };
+      document.querySelectorAll('a[href^="#"]').forEach(a => {
+        const href = a.getAttribute('href');
+        if (!href || href === '#' || href.length < 2) return;
+        a.addEventListener('click', (e) => {
+          const el = document.querySelector(href);
+          if (!el) return;
+          e.preventDefault();
+          scrollTo(el);
+        });
+      });
+      const topBtn = document.getElementById('top-btn');
+      if (topBtn) {
+        let ticking = false;
+        const update = () => {
+          topBtn.classList.toggle('show', window.scrollY > 600);
+          ticking = false;
+        };
+        window.addEventListener('scroll', () => {
+          if (!ticking) { requestAnimationFrame(update); ticking = true; }
+        }, { passive: true });
+        update();
+        topBtn.addEventListener('click', () => scrollTo(0, 0));
+      }
+    })();
+  </script>
+</body>
+</html>
