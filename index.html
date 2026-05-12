@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#0F172A" />
+  <meta name="theme-color" content="#FAF7F2" />
   <title>Victor Lab - 랜딩 페이지, 업무 자동화 외주</title>
   <meta name="description" content="명확한 가격으로 한 번에 받는 외주. 랜딩 페이지 25만원부터, 업무 자동화 25만원부터. 추가 비용 없음, 결과물 1회 납품." />
   <meta property="og:title" content="Victor Lab" />
@@ -15,8 +15,9 @@
   <meta property="og:url" content="https://lab.victor-jk.com" />
 
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="apple-touch-icon" href="/favicon.svg" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <link rel="mask-icon" href="/favicon.svg" color="#0F172A" />
+  <link rel="manifest" href="/manifest.webmanifest" />
 
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
@@ -59,7 +60,7 @@
     .lenis.lenis-smooth { scroll-behavior: auto !important; }
     .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
     .lenis.lenis-stopped { overflow: clip; }
-    body { font-family: 'Pretendard Variable', 'Pretendard', 'Inter', sans-serif; font-feature-settings: 'tnum'; overscroll-behavior-y: none; }
+    body { font-family: 'Pretendard Variable', 'Pretendard', 'Inter', sans-serif; font-feature-settings: 'tnum'; overscroll-behavior-y: none; word-break: keep-all; overflow-wrap: break-word; }
 
     /* Selection */
     ::selection { background: #78350F; color: #FFFAF0; }
@@ -318,10 +319,16 @@
         랜딩 페이지부터<br/>업무 자동화까지 <span class="gradient-text">한 번에</span>
       </h1>
 
-      <p class="reveal text-[15px] sm:text-lg md:text-xl text-slate-800 max-w-2xl mb-8 sm:mb-10 leading-relaxed">
-        ☕ 카페를 창업하셨나요? 메뉴, 위치, 예약을 <strong class="text-slate-900 font-semibold">한 페이지에 담아 드립니다.</strong><br/>
-        ⏱️ 매일 반복되는 일이 시간을 빼앗고 있나요? <strong class="text-slate-900 font-semibold">딸깍! 자동화해 드립니다.</strong>
-      </p>
+      <div class="reveal text-[15px] sm:text-lg md:text-xl text-slate-800 max-w-2xl mb-8 sm:mb-10 leading-relaxed">
+        <div class="flex items-baseline gap-2">
+          <span class="shrink-0">☕</span>
+          <span>카페를 창업하셨나요?<br class="sm:hidden"> 메뉴, 위치, 예약을 <strong class="text-slate-900 font-semibold">한 페이지에 담아 드립니다.</strong></span>
+        </div>
+        <div class="flex items-baseline gap-2">
+          <span class="shrink-0">⏱️</span>
+          <span>매일 반복되는 일이 시간을 빼앗고 있나요?<br class="sm:hidden"> <strong class="text-slate-900 font-semibold">딸깍! 자동화해 드립니다.</strong></span>
+        </div>
+      </div>
 
       <!-- 백업: 말풍선 + 카테고리 모킹 박스. 복원 시 _backup_hero_blocks.html에서 두 블록 가져와 이 위치에 삽입 -->
 
@@ -347,7 +354,7 @@
       <div class="reveal mb-10 md:mb-12 max-w-2xl">
         <div class="text-xs sm:text-sm font-semibold text-amber-700 uppercase tracking-widest mb-3">SERVICES</div>
         <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-4 gradient-text">제작 서비스</h2>
-        <p class="text-slate-800 leading-relaxed"><strong class="text-slate-900 font-semibold">"한 페이지로 사업 알리기"</strong>, <strong class="text-slate-900 font-semibold">"반복되는 일 자동화"</strong> 모두 가능합니다.</p>
+        <p class="text-slate-800 leading-relaxed"><strong class="text-slate-900 font-semibold">"한 페이지로 사업 알리기"</strong>, <strong class="text-slate-900 font-semibold">"반복되는 일 자동화"</strong><br class="sm:hidden"> 모두 가능합니다.</p>
       </div>
 
       <!-- Track 1: Landing Page -->
@@ -370,7 +377,7 @@
             <svg class="w-6 h-6 text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="12" r="2.5"/><path d="M5 17.5c0-1.5 1.8-2.5 4-2.5s4 1 4 2.5"/><path d="M15 10h4M15 13h3"/></svg>
           </div>
           <h3 class="text-lg font-semibold mb-2">소개 사이트</h3>
-          <p class="text-sm text-slate-800 leading-relaxed">프리랜서, 강사, 컨설턴트님의 명함 사이트입니다. 모바일 완벽 호환되며 카톡/전화 연결 가능합니다.</p>
+          <p class="text-sm text-slate-800 leading-relaxed">프리랜서, 강사, 컨설턴트님의 명함 사이트입니다.<br class="sm:hidden"> 모바일 완벽 호환되며 카톡/전화 연결 가능합니다.</p>
         </article>
 
         <!-- L02 -->
@@ -390,7 +397,7 @@
             <svg class="w-6 h-6 text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M3 20v-1a6 6 0 0112 0v1"/><path d="M17 8h5M19.5 5.5v5"/></svg>
           </div>
           <h3 class="text-lg font-semibold mb-2">사전 등록 및 모집 사이트</h3>
-          <p class="text-sm text-slate-800 leading-relaxed">이벤트, 세미나, 상품 출시 전 사전 등록과 홍보를 해보세요. 사전 예약, 텔레그램, 메일 자동 알림으로 관리해드립니다.</p>
+          <p class="text-sm text-slate-800 leading-relaxed">이벤트, 세미나, 상품 출시 전 사전 등록과 홍보를 해보세요.<br class="sm:hidden"> 사전 예약, 텔레그램, 메일 자동 알림으로 관리해드립니다.</p>
         </article>
       </div>
 
@@ -414,7 +421,7 @@
             <svg class="w-6 h-6 text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 11-3.5-7.1"/><path d="M21 4v5h-5"/><path d="M3 12a9 9 0 003.5 7.1"/><path d="M3 20v-5h5"/></svg>
           </div>
           <h3 class="text-lg font-semibold mb-2">반복업무 자동화</h3>
-          <p class="text-sm text-slate-800 leading-relaxed">매일 반복되는 영수증, 송장, 주문 정리 등을 모두 자동화해 드립니다. 엑셀 매크로 등 일회성 실행 도구로 수작업을 제거해 보세요.</p>
+          <p class="text-sm text-slate-800 leading-relaxed">매일 반복되는 영수증, 송장, 주문 정리 등을 모두 자동화해 드립니다.<br class="sm:hidden"> 엑셀 매크로 등 일회성 실행 도구로 수작업을 제거해 보세요.</p>
         </article>
 
         <!-- D02 -->
@@ -447,7 +454,11 @@
         <div class="text-xs sm:text-sm font-semibold text-amber-700 uppercase tracking-widest mb-3">SAMPLES</div>
         <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-4 gradient-text">샘플 작업물</h2>
         <p class="text-slate-800 leading-relaxed">
-          랜딩 페이지 및 업무 자동화 샘플입니다. 의뢰 시 받으실 결과물 형태와 품질을 참고하세요.
+          랜딩 페이지 및 업무 자동화 샘플입니다.<br class="sm:hidden"> 의뢰 시 받으실 결과물 형태와 품질을 참고하세요.
+        </p>
+        <p class="mt-3 text-sm text-stone-600 leading-relaxed flex items-start gap-2 max-w-2xl">
+          <span class="shrink-0 inline-flex items-center h-[1.42rem] px-2 bg-stone-200 text-stone-700 rounded text-[10px] font-medium">가상</span>
+          <span>가상 태그가 붙은 항목은 실제 운영 중인 사이트가 아니라 디자인 컨셉을 보여드리기 위해 제작한 샘플입니다.</span>
         </p>
       </div>
 
@@ -495,7 +506,7 @@
 
               <!-- Hero text -->
               <div style="position:absolute;bottom:60px;left:18px;right:18px;">
-                <p style="font-size:46px;line-height:1.06;letter-spacing:-0.025em;color:#F8F6F1;font-weight:700;margin:0;">
+                <p style="font-size:34px;line-height:1.08;letter-spacing:-0.025em;color:#F8F6F1;font-weight:700;margin:0;">
                   Enterprise<br/>
                   <span style="font-weight:700;color:#E6D098;">intelligence</span><br/>
                   that decides.
@@ -515,14 +526,13 @@
             </div><!-- /orbin-thumb-content -->
           </a>
           <div class="p-5">
-            <div class="flex items-center gap-1.5 text-[10px] font-medium text-stone-700 mb-2 flex-wrap">
-              <span class="px-2 py-0.5 rounded" style="background:#0C1F40;color:#E6D098;">엔터프라이즈 AI</span>
-              <span class="px-2 py-0.5 bg-slate-100 rounded">Pretendard 단일</span>
-              <span class="px-2 py-0.5 bg-slate-100 rounded">네이비 + 샴페인 골드</span>
-              <span class="px-2 py-0.5 bg-stone-200 text-stone-700 rounded">가상</span>
+            <div class="flex items-center gap-1.5 text-[10px] font-medium text-stone-700 mb-2 flex-nowrap overflow-hidden whitespace-nowrap">
+              <span class="shrink-0 px-2 py-0.5 rounded" style="background:#0C1F40;color:#E6D098;">엔터프라이즈 AI</span>
+              <span class="shrink-0 px-2 py-0.5 bg-slate-100 rounded">샴페인 골드</span>
+              <span class="shrink-0 px-2 py-0.5 bg-stone-200 text-stone-700 rounded">가상</span>
             </div>
-            <h3 class="font-semibold text-slate-900 mb-1">랜딩 페이지 - ORBIN 규제산업용 AI 에이전트 플랫폼</h3>
-            <p class="text-sm text-slate-800 leading-relaxed mb-3">다크 히어로 + 라이브 콘솔 데모, 14개사 로고 클라우드, count-up 메트릭 4종, 3단계 도입 프로세스, 2개 케이스 스터디, 컴플라이언스 벨트, 프라이빗 데모 CTA가 포함되었습니다.</p>
+            <h3 class="font-semibold text-slate-900 mb-1">ORBIN 규제산업용 AI 에이전트 플랫폼</h3>
+            <p class="text-sm text-slate-800 leading-relaxed mb-3">라이브 콘솔 데모, 메트릭 카운터, 도입 프로세스, 케이스 스터디, 컴플라이언스 벨트로 구성되었습니다.</p>
             <div class="flex items-center justify-between text-xs">
               <a href="/orbin" target="_blank" rel="noopener" class="inline-flex items-center gap-1 font-medium hover:underline" style="color:#B08F44;">
                 라이브 보기
@@ -579,12 +589,11 @@
             </div><!-- /okum-thumb-content -->
           </a>
           <div class="p-5">
-            <div class="flex items-center gap-1.5 text-[10px] font-medium text-stone-700 mb-2 flex-wrap">
-              <span class="px-2 py-0.5 rounded" style="background:#1A1410;color:#FFA836;">영상 제작 스튜디오</span>
-              <span class="px-2 py-0.5 bg-slate-100 rounded">유튜브·댄스/뮤직·스케치/광고·방송·웨딩</span>
-              <span class="px-2 py-0.5 bg-slate-100 rounded">다크 시네마틱</span>
+            <div class="flex items-center gap-1.5 text-[10px] font-medium text-stone-700 mb-2 flex-nowrap overflow-hidden whitespace-nowrap">
+              <span class="shrink-0 px-2 py-0.5 rounded" style="background:#1A1410;color:#FFA836;">영상 제작 스튜디오</span>
+              <span class="shrink-0 px-2 py-0.5 bg-slate-100 rounded">다크 시네마틱</span>
             </div>
-            <h3 class="font-semibold text-slate-900 mb-1">랜딩 페이지 - Studio OKUM 영상 제작 스튜디오</h3>
+            <h3 class="font-semibold text-slate-900 mb-1">Studio OKUM 영상 제작 스튜디오</h3>
             <p class="text-sm text-slate-800 leading-relaxed mb-3">기획부터 4K 마스터까지, 5가지 카테고리(유튜브·댄스/뮤직·스케치/광고·방송·웨딩) 포트폴리오 캐러셀과 진행 과정·의뢰 폼이 포함되었습니다.</p>
             <div class="flex items-center justify-between text-xs">
               <a href="/okum" target="_blank" rel="noopener" class="inline-flex items-center gap-1 font-medium hover:underline" style="color:#E8860B;">
@@ -675,13 +684,12 @@
             </div><!-- /axis-thumb-content -->
           </a>
           <div class="p-5">
-            <div class="flex items-center gap-1.5 text-[10px] font-medium text-stone-700 mb-2">
-              <span class="px-2 py-0.5 rounded" style="background:#EFF6FF;color:#1D4ED8;">1인 창업자</span>
-              <span class="px-2 py-0.5 bg-slate-100 rounded">벤토 그리드</span>
-              <span class="px-2 py-0.5 bg-slate-100 rounded">카카오 문의</span>
-              <span class="px-2 py-0.5 bg-stone-200 text-stone-700 rounded">가상</span>
+            <div class="flex items-center gap-1.5 text-[10px] font-medium text-stone-700 mb-2 flex-nowrap overflow-hidden whitespace-nowrap">
+              <span class="shrink-0 px-2 py-0.5 rounded" style="background:#EFF6FF;color:#1D4ED8;">1인 창업자</span>
+              <span class="shrink-0 px-2 py-0.5 bg-slate-100 rounded">카카오 문의</span>
+              <span class="shrink-0 px-2 py-0.5 bg-stone-200 text-stone-700 rounded">가상</span>
             </div>
-            <h3 class="font-semibold text-slate-900 mb-1">서비스 소개 페이지 - AXIS</h3>
+            <h3 class="font-semibold text-slate-900 mb-1">AXIS 1인 창업자 계약·정산 SaaS</h3>
             <p class="text-sm text-slate-800 leading-relaxed mb-3">기능 3컷(견적·정산·거래처), 이용 흐름, 후기, 카톡 문의 섹션으로 구성되었습니다.</p>
             <div class="flex items-center justify-between text-xs">
               <a href="/service" target="_blank" rel="noopener" class="inline-flex items-center gap-1 font-medium hover:underline" style="color:#1D4ED8;">
@@ -703,12 +711,12 @@
             </div>
           </a>
           <div class="p-5">
-            <div class="flex items-center gap-1.5 text-[10px] font-medium text-stone-700 mb-2">
-              <span class="px-2 py-0.5 bg-[#e8f4f9] text-[#1A7BA7] rounded">카페</span>
-              <span class="px-2 py-0.5 bg-slate-100 rounded">갤러리</span>
-              <span class="px-2 py-0.5 bg-slate-100 rounded">카카오맵</span>
+            <div class="flex items-center gap-1.5 text-[10px] font-medium text-stone-700 mb-2 flex-nowrap overflow-hidden whitespace-nowrap">
+              <span class="shrink-0 px-2 py-0.5 bg-[#e8f4f9] text-[#1A7BA7] rounded">카페</span>
+              <span class="shrink-0 px-2 py-0.5 bg-slate-100 rounded">갤러리</span>
+              <span class="shrink-0 px-2 py-0.5 bg-slate-100 rounded">카카오맵</span>
             </div>
-            <h3 class="font-semibold text-slate-900 mb-1">랜딩 페이지 - 카페 오키나와 파라솔</h3>
+            <h3 class="font-semibold text-slate-900 mb-1">카페 오키나와 파라솔</h3>
             <p class="text-sm text-slate-800 leading-relaxed mb-3">히어로 배경과 이미지 갤러리 그리고 카카오맵이 임베드되었습니다.</p>
             <div class="flex items-center justify-between text-xs">
               <a href="/okinawa" target="_blank" rel="noopener" class="inline-flex items-center gap-1 text-[#1A7BA7] font-medium hover:underline">
@@ -804,13 +812,12 @@
             </div><!-- /aura-thumb-content -->
           </a>
           <div class="p-5">
-            <div class="flex items-center gap-1.5 text-[10px] font-medium text-stone-700 mb-2">
-              <span class="px-2 py-0.5 rounded" style="background:#f3eeff;color:#7C3AED;">앱 사전등록</span>
-              <span class="px-2 py-0.5 bg-slate-100 rounded">카운트다운</span>
-              <span class="px-2 py-0.5 bg-slate-100 rounded">다크 테마</span>
-              <span class="px-2 py-0.5 bg-stone-200 text-stone-700 rounded">가상</span>
+            <div class="flex items-center gap-1.5 text-[10px] font-medium text-stone-700 mb-2 flex-nowrap overflow-hidden whitespace-nowrap">
+              <span class="shrink-0 px-2 py-0.5 rounded" style="background:#f3eeff;color:#7C3AED;">앱 사전등록</span>
+              <span class="shrink-0 px-2 py-0.5 bg-slate-100 rounded">다크 테마</span>
+              <span class="shrink-0 px-2 py-0.5 bg-stone-200 text-stone-700 rounded">가상</span>
             </div>
-            <h3 class="font-semibold text-slate-900 mb-1">사전등록 페이지 - AURA 웰니스 앱</h3>
+            <h3 class="font-semibold text-slate-900 mb-1">AURA 웰니스 앱</h3>
             <p class="text-sm text-slate-800 leading-relaxed mb-3">히어로 폰 목업, 기능 소개, 출시 카운트다운, 이메일 사전등록 폼이 포함되었습니다.</p>
             <div class="flex items-center justify-between text-xs">
               <a href="/app" target="_blank" rel="noopener" class="inline-flex items-center gap-1 font-medium hover:underline" style="color:#7C3AED;">
@@ -852,13 +859,12 @@
             </div><!-- /numen-thumb-content -->
           </a>
           <div class="p-5">
-            <div class="flex items-center gap-1.5 text-[10px] font-medium text-stone-700 mb-2 flex-wrap">
-              <span class="px-2 py-0.5 rounded" style="background:#0A0A0A;color:#F2F0EB;">건축 사무소</span>
-              <span class="px-2 py-0.5 bg-slate-100 rounded">에디토리얼 모노크롬</span>
-              <span class="px-2 py-0.5 bg-slate-100 rounded">Bricolage Grotesque</span>
-              <span class="px-2 py-0.5 bg-stone-200 text-stone-700 rounded">가상</span>
+            <div class="flex items-center gap-1.5 text-[10px] font-medium text-stone-700 mb-2 flex-nowrap overflow-hidden whitespace-nowrap">
+              <span class="shrink-0 px-2 py-0.5 rounded" style="background:#0A0A0A;color:#F2F0EB;">건축 사무소</span>
+              <span class="shrink-0 px-2 py-0.5 bg-slate-100 rounded">모노크롬</span>
+              <span class="shrink-0 px-2 py-0.5 bg-stone-200 text-stone-700 rounded">가상</span>
             </div>
-            <h3 class="font-semibold text-slate-900 mb-1">포트폴리오 페이지 - Atelier NUMEN 건축 사무소</h3>
+            <h3 class="font-semibold text-slate-900 mb-1">Atelier NUMEN 건축 사무소</h3>
             <p class="text-sm text-slate-800 leading-relaxed mb-3">풀블리드 작품 사진 히어로, 6개 프로젝트 그리드, 5단계 프로세스, 파트너 소개, 출판 이력, 의뢰 섹션이 포함되었습니다.</p>
             <div class="flex items-center justify-between text-xs">
               <a href="/numen" target="_blank" rel="noopener" class="inline-flex items-center gap-1 font-medium hover:underline" style="color:#0A0A0A;">
@@ -909,13 +915,12 @@
             </div><!-- /tempo-thumb-content -->
           </a>
           <div class="p-5">
-            <div class="flex items-center gap-1.5 text-[10px] font-medium text-stone-700 mb-2 flex-wrap">
-              <span class="px-2 py-0.5 rounded" style="background:#1A1815;color:#DC2626;">러닝·사이클 클럽</span>
-              <span class="px-2 py-0.5 bg-slate-100 rounded">Anton 컨덴스</span>
-              <span class="px-2 py-0.5 bg-slate-100 rounded">헤리티지 스포츠</span>
-              <span class="px-2 py-0.5 bg-stone-200 text-stone-700 rounded">가상</span>
+            <div class="flex items-center gap-1.5 text-[10px] font-medium text-stone-700 mb-2 flex-nowrap overflow-hidden whitespace-nowrap">
+              <span class="shrink-0 px-2 py-0.5 rounded" style="background:#1A1815;color:#DC2626;">러닝·사이클 클럽</span>
+              <span class="shrink-0 px-2 py-0.5 bg-slate-100 rounded">헤리티지</span>
+              <span class="shrink-0 px-2 py-0.5 bg-stone-200 text-stone-700 rounded">가상</span>
             </div>
-            <h3 class="font-semibold text-slate-900 mb-1">멤버십 페이지 - TEMPO Society 러닝·사이클 클럽</h3>
+            <h3 class="font-semibold text-slate-900 mb-1">TEMPO Society 러닝·사이클 클럽</h3>
             <p class="text-sm text-slate-800 leading-relaxed mb-3">풀블리드 액션 히어로, 활동 통계, 월간 일정 테이블, 갤러리 그리드, 킷 2종, 멤버 카드 3명, 가입 CTA 섹션이 포함되었습니다.</p>
             <div class="flex items-center justify-between text-xs">
               <a href="/tempo_society" target="_blank" rel="noopener" class="inline-flex items-center gap-1 font-medium hover:underline" style="color:#DC2626;">
@@ -965,13 +970,12 @@
             </div>
           </a>
           <div class="p-5">
-            <div class="flex items-center gap-1.5 text-[10px] font-medium text-stone-700 mb-2 flex-wrap">
-              <span class="px-2 py-0.5 rounded" style="background:#fef3ec;color:#c84a1c;">필름 스튜디오</span>
-              <span class="px-2 py-0.5 bg-slate-100 rounded">비디오 배경 히어로</span>
-              <span class="px-2 py-0.5 bg-slate-100 rounded">시네마틱</span>
-              <span class="px-2 py-0.5 bg-stone-200 text-stone-700 rounded">가상</span>
+            <div class="flex items-center gap-1.5 text-[10px] font-medium text-stone-700 mb-2 flex-nowrap overflow-hidden whitespace-nowrap">
+              <span class="shrink-0 px-2 py-0.5 rounded" style="background:#fef3ec;color:#c84a1c;">필름 스튜디오</span>
+              <span class="shrink-0 px-2 py-0.5 bg-slate-100 rounded">시네마틱</span>
+              <span class="shrink-0 px-2 py-0.5 bg-stone-200 text-stone-700 rounded">가상</span>
             </div>
-            <h3 class="font-semibold text-slate-900 mb-1">랜딩 페이지 - Halden Studio 영상 스튜디오</h3>
+            <h3 class="font-semibold text-slate-900 mb-1">Halden Studio 영상 스튜디오</h3>
             <p class="text-sm text-slate-800 leading-relaxed mb-3">영상 배경 히어로, 6개 작품 그리드, 서비스, 프로세스, 연락 섹션이 포함되었습니다.</p>
             <div class="flex items-center justify-between text-xs">
               <a href="/halden_studio" target="_blank" rel="noopener" class="inline-flex items-center gap-1 font-medium hover:underline" style="color:#c84a1c;">
@@ -1049,11 +1053,10 @@
             </div><!-- /excel-thumb-content -->
           </a>
           <div class="p-5">
-            <div class="flex items-center gap-1.5 text-[10px] font-medium text-stone-700 mb-2">
-              <span class="px-2 py-0.5 bg-slate-100 rounded">Python</span>
-              <span class="px-2 py-0.5 bg-slate-100 rounded">엑셀 자동화</span>
-              <span class="px-2 py-0.5 bg-emerald-50 text-emerald-700 rounded">LIVE</span>
-              <span class="px-2 py-0.5 bg-stone-200 text-stone-700 rounded">가상</span>
+            <div class="flex items-center gap-1.5 text-[10px] font-medium text-stone-700 mb-2 flex-nowrap overflow-hidden whitespace-nowrap">
+              <span class="shrink-0 px-2 py-0.5 bg-slate-100 rounded">Python</span>
+              <span class="shrink-0 px-2 py-0.5 bg-emerald-50 text-emerald-700 rounded">LIVE</span>
+              <span class="shrink-0 px-2 py-0.5 bg-stone-200 text-stone-700 rounded">가상</span>
             </div>
             <h3 class="font-semibold text-slate-900 mb-1">청구서·주문서 자동 정리</h3>
             <p class="text-sm text-slate-800 leading-relaxed mb-3">중복 제거, 거래처명 표준화, 금액 합산을 스크립트 한 번에 처리합니다.</p>
@@ -1128,11 +1131,10 @@
             </div><!-- /crawl-thumb-content -->
           </a>
           <div class="p-5">
-            <div class="flex items-center gap-1.5 text-[10px] font-medium text-stone-700 mb-2">
-              <span class="px-2 py-0.5 bg-slate-100 rounded">크롤링</span>
-              <span class="px-2 py-0.5 bg-slate-100 rounded">텔레그램 알림</span>
-              <span class="px-2 py-0.5 bg-blue-50 text-blue-700 rounded">LIVE</span>
-              <span class="px-2 py-0.5 bg-stone-200 text-stone-700 rounded">가상</span>
+            <div class="flex items-center gap-1.5 text-[10px] font-medium text-stone-700 mb-2 flex-nowrap overflow-hidden whitespace-nowrap">
+              <span class="shrink-0 px-2 py-0.5 bg-slate-100 rounded">크롤링</span>
+              <span class="shrink-0 px-2 py-0.5 bg-blue-50 text-blue-700 rounded">LIVE</span>
+              <span class="shrink-0 px-2 py-0.5 bg-stone-200 text-stone-700 rounded">가상</span>
             </div>
             <h3 class="font-semibold text-slate-900 mb-1">가격·매물 크롤링 알림</h3>
             <p class="text-sm text-slate-800 leading-relaxed mb-3">당근, 중고나라, 쿠팡을 감시하고 조건 충족 시 텔레그램으로 즉시 알립니다.</p>
@@ -1193,11 +1195,10 @@
             </div><!-- /dart-thumb-content -->
           </a>
           <div class="p-5">
-            <div class="flex items-center gap-1.5 text-[10px] font-medium text-stone-700 mb-2">
-              <span class="px-2 py-0.5 bg-slate-100 rounded">크롤링</span>
-              <span class="px-2 py-0.5 bg-slate-100 rounded">텔레그램</span>
-              <span class="px-2 py-0.5 bg-amber-50 text-amber-700 rounded">LIVE</span>
-              <span class="px-2 py-0.5 bg-stone-200 text-stone-700 rounded">가상</span>
+            <div class="flex items-center gap-1.5 text-[10px] font-medium text-stone-700 mb-2 flex-nowrap overflow-hidden whitespace-nowrap">
+              <span class="shrink-0 px-2 py-0.5 bg-slate-100 rounded">크롤링</span>
+              <span class="shrink-0 px-2 py-0.5 bg-amber-50 text-amber-700 rounded">LIVE</span>
+              <span class="shrink-0 px-2 py-0.5 bg-stone-200 text-stone-700 rounded">가상</span>
             </div>
             <h3 class="font-semibold text-slate-900 mb-1">나라장터, DART 키워드 매칭 알림</h3>
             <p class="text-sm text-slate-800 leading-relaxed mb-3">관심 키워드, 종목 공시, 입찰공고 발생 시 텔레그램으로 즉시 알립니다.</p>
@@ -1220,7 +1221,7 @@
       <div class="reveal mb-10 md:mb-12 max-w-2xl mx-auto text-center">
         <div class="text-xs sm:text-sm font-semibold text-amber-700 uppercase tracking-widest mb-3">PRICING</div>
         <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-4 gradient-text">가격 안내</h2>
-        <p class="text-slate-800 leading-relaxed">의뢰 내용에 따라 조정될 수 있습니다. 정확한 견적은 의뢰 후 회신드립니다.</p>
+        <p class="text-slate-800 leading-relaxed">의뢰 내용에 따라 조정될 수 있습니다.<br class="sm:hidden"> 정확한 견적은 의뢰 후 회신드립니다.</p>
       </div>
 
       <!-- Track 1: Landing -->
@@ -1465,7 +1466,7 @@
               <div class="w-9 h-9 rounded-full gold-cta flex items-center justify-center text-sm font-semibold relative z-10">01</div>
             </div>
             <h3 class="font-semibold mb-2">의뢰 폼 작성</h3>
-            <p class="text-sm text-slate-800 leading-relaxed">하단 폼에 트랙, 원하는 결과물, 참고 자료(스타일·데이터 소스)를 작성해 주세요. 약 5분 소요됩니다.</p>
+            <p class="text-sm text-slate-800 leading-relaxed">하단 폼에 트랙, 원하는 결과물, 참고 자료(스타일·데이터 소스)를 작성해 주세요.<br class="sm:hidden"> 약 5분 소요됩니다.</p>
           </div>
           <div class="reveal relative">
             <div class="flex items-center gap-3 mb-4">
@@ -1602,7 +1603,7 @@
               <div class="border-t border-slate-100 pt-4 flex gap-2.5">
                 <span class="text-amber-600 font-bold flex-shrink-0">A.</span>
                 <div class="flex-1 text-sm text-slate-800 leading-relaxed space-y-3">
-                  <p>제공하지 않습니다. Victor Lab은 <strong class="text-slate-900">결과물 제작·전달까지</strong>만 담당하며, 정기 모니터링 운영은 진행하지 않습니다.</p>
+                  <p>제공하지 않습니다.<br class="sm:hidden"> Victor Lab은 <strong class="text-slate-900">결과물 제작·전달까지</strong>만 담당하며, 정기 모니터링 운영은 진행하지 않습니다.</p>
                   <p>결과물은 고객님 PC 또는 자체 서버에서 직접 실행하시는 형태로 전달드립니다.</p>
                 </div>
               </div>
@@ -1678,7 +1679,7 @@
           <summary class="px-5 py-5 cursor-pointer flex items-baseline justify-between gap-4 hover:bg-slate-50 transition">
             <span class="flex items-baseline gap-2.5 flex-1">
               <span class="text-amber-600 font-bold flex-shrink-0">Q.</span>
-              <span class="font-semibold text-slate-900">시안 받고 진행이 어려워졌어요. 환불되나요?</span>
+              <span class="font-semibold text-slate-900">시안 받고 진행이 어려워졌어요.<br class="sm:hidden"> 환불되나요?</span>
             </span>
             <span class="faq-icon text-stone-500 text-xl leading-none flex-shrink-0">+</span>
           </summary>
@@ -1909,6 +1910,14 @@
   </button>
 
   <script>
+    // PWA standalone: keep portfolio nav inside the app so Android back button works
+    if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone) {
+      document.querySelectorAll('a[target="_blank"]').forEach(a => {
+        a.removeAttribute('target');
+        a.removeAttribute('rel');
+      });
+    }
+
     // Twemoji - convert all static emojis to bright SVG
     if (window.twemoji) {
       twemoji.parse(document.body);

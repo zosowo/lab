@@ -1,0 +1,26 @@
+{
+  "name": "Victor Lab",
+  "short_name": "Victor Lab",
+  "description": "랜딩 페이지 및 업무 자동화 제작",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#FAF7F2",
+  "background_color": "#FAF7F2",
+  "lang": "ko",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
