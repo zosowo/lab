@@ -37,11 +37,32 @@
     "logo": "https://lab.victor-jk.com/icon-512.png",
     "priceRange": "₩₩",
     "areaServed": { "@type": "Country", "name": "KR" },
-    "serviceType": ["랜딩 페이지 제작", "업무 자동화 구축"],
-    "offers": [
-      { "@type": "Offer", "name": "랜딩 페이지", "price": "250000", "priceCurrency": "KRW" },
-      { "@type": "Offer", "name": "업무 자동화", "price": "250000", "priceCurrency": "KRW" }
-    ]
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Victor Lab 서비스",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "price": "250000",
+          "priceCurrency": "KRW",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "랜딩 페이지 제작",
+            "serviceType": "랜딩 페이지 제작"
+          }
+        },
+        {
+          "@type": "Offer",
+          "price": "250000",
+          "priceCurrency": "KRW",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "업무 자동화 구축",
+            "serviceType": "업무 자동화 구축"
+          }
+        }
+      ]
+    }
   }
   </script>
 
@@ -292,6 +313,29 @@
     /* AURA thumbnail - breathing ring */
     @keyframes th-breathe { 0%,100% { transform:scale(1); opacity:.6; } 50% { transform:scale(1.12); opacity:1; } }
     .th-ring { animation: th-breathe 4s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+
+    /* Halden thumbnail - cinematic motion */
+    @keyframes halden-kenburns {
+      from { transform: scale(1.06) translate3d(0, 0, 0); }
+      to   { transform: scale(1.16) translate3d(-1.4%, -1.2%, 0); }
+    }
+    .halden-kenburns { animation: halden-kenburns 22s ease-in-out infinite alternate; will-change: transform; transform: translateZ(0); }
+
+    @keyframes halden-pulse {
+      0%, 100% { opacity: 1; transform: scale(1); box-shadow: 0 0 14px rgba(255,91,34,0.75); }
+      50%      { opacity: 0.65; transform: scale(0.82); box-shadow: 0 0 6px rgba(255,91,34,0.35); }
+    }
+    .halden-pulse { animation: halden-pulse 2.4s ease-in-out infinite; }
+
+    @keyframes halden-marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    .halden-marquee { animation: halden-marquee 28s linear infinite; will-change: transform; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .halden-kenburns, .halden-pulse, .halden-marquee { animation: none; }
+    }
 
     /* Mobile menu */
     #mobile-menu { transition: opacity 0.2s ease, transform 0.2s ease; }
