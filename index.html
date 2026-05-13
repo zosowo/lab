@@ -1937,49 +1937,43 @@
         <p class="text-slate-800 leading-relaxed">랜딩 페이지 또는 자동화, 어떤 걸로 시작해 보시겠어요?</p>
       </div>
 
+      <div id="form-status" class="hidden rounded-xl border p-5 sm:p-6 mb-5 shadow-md"></div>
 
       <form id="contact-form" class="reveal glass-card rounded-2xl p-5 sm:p-7 space-y-7 shadow-lg shadow-amber-900/10">
-        <!-- 연락처 -->
+        <!-- 1차: 필수 -->
         <div class="space-y-4">
           <div class="flex items-baseline gap-2">
-            <h3 class="text-sm font-semibold text-amber-900">연락처</h3>
-            <span class="text-[11px] text-stone-500">회신을 위한 정보입니다</span>
+            <h3 class="text-sm font-semibold text-amber-900">의뢰 정보</h3>
+            <span class="text-[11px] font-medium text-amber-700 bg-amber-100/70 px-2 py-0.5 rounded-full">필수</span>
           </div>
+
           <div class="grid md:grid-cols-3 gap-4">
             <div>
               <label class="block text-sm font-medium text-stone-700 mb-1.5">성함 / 닉네임</label>
-              <input type="text" name="name" required class="w-full bg-white border border-amber-200 rounded-lg px-3.5 py-2.5 text-stone-900 placeholder-stone-400 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-300/40 transition" placeholder="홍길동" />
+              <input type="text" name="name" required class="w-full bg-white border border-amber-200 rounded-lg px-3.5 py-2.5 text-stone-900 placeholder-stone-400 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-300/40 transition" />
             </div>
             <div>
               <label class="block text-sm font-medium text-stone-700 mb-1.5">이메일 또는 카톡 ID</label>
-              <input type="text" name="contact" required class="w-full bg-white border border-amber-200 rounded-lg px-3.5 py-2.5 text-stone-900 placeholder-stone-400 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-300/40 transition" placeholder="hello@example.com" />
+              <input type="text" name="contact" required class="w-full bg-white border border-amber-200 rounded-lg px-3.5 py-2.5 text-stone-900 placeholder-stone-400 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-300/40 transition" />
             </div>
             <div>
               <label class="block text-sm font-medium text-stone-700 mb-1.5">핸드폰 <span class="text-stone-400 font-normal">(선택)</span></label>
-              <input type="tel" name="phone" class="w-full bg-white border border-amber-200 rounded-lg px-3.5 py-2.5 text-stone-900 placeholder-stone-400 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-300/40 transition" placeholder="010-0000-0000" />
+              <input type="tel" name="phone" class="w-full bg-white border border-amber-200 rounded-lg px-3.5 py-2.5 text-stone-900 placeholder-stone-400 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-300/40 transition" />
             </div>
-          </div>
-        </div>
-
-        <!-- 프로젝트 정보 -->
-        <div class="space-y-4 pt-6 border-t border-amber-200/50">
-          <div class="flex items-baseline gap-2">
-            <h3 class="text-sm font-semibold text-amber-900">프로젝트 정보</h3>
-            <span class="text-[11px] font-medium text-amber-700 bg-amber-100/70 px-2 py-0.5 rounded-full">필수</span>
           </div>
 
           <div>
             <label class="block text-sm font-medium text-stone-700 mb-1.5">관심 패키지</label>
             <select name="package" id="package-select" class="w-full bg-white border border-amber-200 rounded-lg px-3.5 py-2.5 text-stone-900 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-300/40 transition">
               <optgroup label="랜딩 페이지">
-                <option value="lp-basic">랜딩 베이직 (25만원~)</option>
-                <option value="lp-standard" selected>랜딩 스탠다드 (35만원~)</option>
-                <option value="lp-premium">랜딩 프리미엄 (60만원~)</option>
+                <option value="lp-basic">베이직 (25만원~)</option>
+                <option value="lp-standard" selected>스탠다드 (35만원~)</option>
+                <option value="lp-premium">프리미엄 (60만원~)</option>
               </optgroup>
               <optgroup label="업무 자동화">
-                <option value="data-basic">자동화 베이직 (25만원~)</option>
-                <option value="data-standard">자동화 스탠다드 (35만원~)</option>
-                <option value="data-premium">자동화 프리미엄 (100만원~)</option>
+                <option value="data-basic">베이직 (25만원~)</option>
+                <option value="data-standard">스탠다드 (35만원~)</option>
+                <option value="data-premium">프리미엄 (100만원~)</option>
               </optgroup>
               <option value="maintenance">사이트 수정 및 유지보수 (5만원~)</option>
               <option value="undecided">아직 정하지 않음</option>
@@ -1987,74 +1981,80 @@
           </div>
 
           <div>
-            <label class="block text-sm font-medium text-stone-700 mb-1.5">의뢰 제목</label>
-            <input type="text" name="q_title" required minlength="3" class="w-full bg-white border border-amber-200 rounded-lg px-3.5 py-2.5 text-stone-900 placeholder-stone-400 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-300/40 transition" placeholder="신규 베이커리 오픈용 랜딩 페이지" />
+            <label class="block text-sm font-medium text-stone-700 mb-1.5">한 줄 요청</label>
+            <input type="text" name="q_summary" required minlength="5" class="w-full bg-white border border-amber-200 rounded-lg px-3.5 py-2.5 text-stone-900 placeholder-stone-400 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-300/40 transition" />
+            <p class="mt-1 text-[11px] text-stone-500">한 줄로 요약해 주세요. 자세한 내용은 다음 단계에서 받습니다</p>
           </div>
+        </div>
 
+        <div class="flex justify-end pt-2">
+          <button type="submit" class="inline-flex items-center justify-center gap-2 gold-cta px-6 py-3 rounded-lg font-medium group whitespace-nowrap shrink-0">
+            의뢰 보내기
+            <svg class="w-4 h-4 group-hover:translate-x-0.5 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </button>
+        </div>
+      </form>
+
+      <!-- 2차: 1차 제출 후 노출 -->
+      <form id="contact-extend-form" class="hidden glass-card rounded-2xl p-5 sm:p-7 space-y-7 shadow-lg shadow-amber-900/10 mt-5">
+        <div class="space-y-2">
+          <div class="flex items-baseline gap-2">
+            <h3 class="text-sm font-semibold text-amber-900">정확한 견적을 위한 추가 정보</h3>
+            <span class="text-[11px] text-stone-500">선택, 아무 항목이나 채워 주시면 됩니다</span>
+          </div>
+          <p class="text-xs text-stone-600 leading-relaxed">2분만 더 알려주시면 첫 답변에서 바로 견적을 드릴 수 있습니다</p>
+        </div>
+
+        <div class="space-y-4">
           <div>
             <label class="block text-sm font-medium text-stone-700 mb-1.5">사업 / 서비스 소개</label>
-            <textarea name="q_business" rows="3" required minlength="20" class="w-full bg-white border border-amber-200 rounded-lg px-3.5 py-2.5 text-stone-900 placeholder-stone-400 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-300/40 transition resize-none" placeholder="어떤 업종이고, 무엇을 판매/제공하는지 알려주세요. 운영 중인 사이트나 SNS가 있다면 함께 적어주세요."></textarea>
-            <p class="mt-1 text-[11px] text-stone-500">20자 이상</p>
+            <textarea name="q_business" rows="3" class="w-full bg-white border border-amber-200 rounded-lg px-3.5 py-2.5 text-stone-900 placeholder-stone-400 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-300/40 transition resize-none"></textarea>
           </div>
 
           <div class="grid md:grid-cols-2 gap-4">
             <div>
               <label class="block text-sm font-medium text-stone-700 mb-1.5">의뢰 목적</label>
-              <input type="text" name="q_purpose" required minlength="4" class="w-full bg-white border border-amber-200 rounded-lg px-3.5 py-2.5 text-stone-900 placeholder-stone-400 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-300/40 transition" placeholder="신규 고객 유입, 예약 받기" />
+              <input type="text" name="q_purpose" class="w-full bg-white border border-amber-200 rounded-lg px-3.5 py-2.5 text-stone-900 placeholder-stone-400 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-300/40 transition" />
             </div>
             <div>
               <label class="block text-sm font-medium text-stone-700 mb-1.5">타겟 고객</label>
-              <input type="text" name="q_target" required minlength="4" class="w-full bg-white border border-amber-200 rounded-lg px-3.5 py-2.5 text-stone-900 placeholder-stone-400 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-300/40 transition" placeholder="20~30대 직장인, 인근 주민" />
+              <input type="text" name="q_target" class="w-full bg-white border border-amber-200 rounded-lg px-3.5 py-2.5 text-stone-900 placeholder-stone-400 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-300/40 transition" />
             </div>
           </div>
 
           <div>
             <label class="block text-sm font-medium text-stone-700 mb-1.5">희망 기능</label>
-            <textarea name="q_features" rows="3" required minlength="15" class="w-full bg-white border border-amber-200 rounded-lg px-3.5 py-2.5 text-stone-900 placeholder-stone-400 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-300/40 transition resize-none" placeholder="카카오 문의 버튼, 네이버 예약 연동, 포트폴리오 갤러리, 메뉴 소개 등 필요한 기능을 적어주세요."></textarea>
-            <p class="mt-1 text-[11px] text-stone-500">15자 이상</p>
-          </div>
-        </div>
-
-        <!-- 추가 정보 -->
-        <div class="space-y-4 pt-6 border-t border-amber-200/50">
-          <div class="flex items-baseline gap-2">
-            <h3 class="text-sm font-semibold text-amber-900">추가 정보</h3>
-            <span class="text-[11px] text-stone-500">알려주시면 더 정확하게 회신드립니다</span>
+            <textarea name="q_features" rows="3" class="w-full bg-white border border-amber-200 rounded-lg px-3.5 py-2.5 text-stone-900 placeholder-stone-400 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-300/40 transition resize-none"></textarea>
           </div>
 
           <div>
             <label class="block text-sm font-medium text-stone-700 mb-1.5">보유 자료</label>
-            <input type="text" name="q_assets" class="w-full bg-white border border-amber-200 rounded-lg px-3.5 py-2.5 text-stone-900 placeholder-stone-400 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-300/40 transition" placeholder="로고 있음, 사진 있음, 본문 작성 가능" />
+            <input type="text" name="q_assets" class="w-full bg-white border border-amber-200 rounded-lg px-3.5 py-2.5 text-stone-900 placeholder-stone-400 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-300/40 transition" />
           </div>
 
           <div class="grid md:grid-cols-2 gap-4">
             <div>
               <label class="block text-sm font-medium text-stone-700 mb-1.5">참고 사이트</label>
-              <input type="text" name="q_refs" class="w-full bg-white border border-amber-200 rounded-lg px-3.5 py-2.5 text-stone-900 placeholder-stone-400 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-300/40 transition" placeholder="마음에 드는 사이트 링크 1-3개" />
+              <input type="text" name="q_refs" class="w-full bg-white border border-amber-200 rounded-lg px-3.5 py-2.5 text-stone-900 placeholder-stone-400 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-300/40 transition" />
             </div>
             <div>
               <label class="block text-sm font-medium text-stone-700 mb-1.5">희망 일정</label>
-              <input type="text" name="q_schedule" class="w-full bg-white border border-amber-200 rounded-lg px-3.5 py-2.5 text-stone-900 placeholder-stone-400 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-300/40 transition" placeholder="5월 말까지 오픈 희망" />
+              <input type="text" name="q_schedule" class="w-full bg-white border border-amber-200 rounded-lg px-3.5 py-2.5 text-stone-900 placeholder-stone-400 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-300/40 transition" />
             </div>
           </div>
 
           <div>
             <label class="block text-sm font-medium text-stone-700 mb-1.5">기타 요청사항</label>
-            <textarea name="q_extra" rows="2" class="w-full bg-white border border-amber-200 rounded-lg px-3.5 py-2.5 text-stone-900 placeholder-stone-400 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-300/40 transition resize-none" placeholder="추가로 전달하고 싶은 내용이 있다면 자유롭게 적어주세요."></textarea>
+            <textarea name="q_extra" rows="2" class="w-full bg-white border border-amber-200 rounded-lg px-3.5 py-2.5 text-stone-900 placeholder-stone-400 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-300/40 transition resize-none"></textarea>
           </div>
         </div>
 
-        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pt-2">
-          <p class="text-xs text-stone-600 max-w-md leading-relaxed">
-            의뢰 가능 범위는 위 안내와 FAQ를 참고해 주세요.
-          </p>
+        <div class="flex justify-end pt-2">
           <button type="submit" class="inline-flex items-center justify-center gap-2 gold-cta px-6 py-3 rounded-lg font-medium group whitespace-nowrap shrink-0">
-            의뢰하기
+            추가 정보 보내기
             <svg class="w-4 h-4 group-hover:translate-x-0.5 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
           </button>
         </div>
-
-        <div id="form-status" class="hidden text-sm rounded-lg p-3.5"></div>
       </form>
     </div>
   </section>
@@ -2252,58 +2252,111 @@
     });
 
     // Contact form → Telegram
+    let __contactTicket = null;
+
     document.getElementById('contact-form').addEventListener('submit', async function (e) {
       e.preventDefault();
       const status = document.getElementById('form-status');
       const data = new FormData(this);
-      const name = data.get('name') || '';
-      const contact = data.get('contact') || '';
-      const phone = data.get('phone') || '';
-      const pkg = data.get('package') || '';
+      const name = (data.get('name') || '').trim();
+      const contact = (data.get('contact') || '').trim();
+      const phone = (data.get('phone') || '').trim();
+      const pkg = (data.get('package') || '').trim();
+      const summary = (data.get('q_summary') || '').trim();
 
-      const sections = [
-        ['1. 의뢰 제목', data.get('q_title')],
-        ['2. 사업/서비스 소개', data.get('q_business')],
-        ['3. 의뢰 목적', data.get('q_purpose')],
-        ['4. 타겟 고객', data.get('q_target')],
-        ['5. 희망 기능', data.get('q_features')],
-        ['6. 보유 자료', data.get('q_assets')],
-        ['7. 참고 사이트', data.get('q_refs')],
-        ['8. 희망 일정', data.get('q_schedule')],
-        ['9. 기타 요청사항', data.get('q_extra')]
-      ];
-      const message = sections
-        .map(([k, v]) => [k, (v || '').trim()])
-        .filter(([_, v]) => v.length > 0)
-        .map(([k, v]) => `${k}\n${v}`)
-        .join('\n\n');
+      const btn = this.querySelector('button[type=submit]');
+      btn.disabled = true;
+      btn.classList.add('opacity-60', 'cursor-not-allowed');
 
       try {
         const res = await fetch('/api/contact', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            name,
-            contact,
-            phone,
-            package: pkg,
-            message
-          })
+          body: JSON.stringify({ name, contact, phone, package: pkg, message: summary })
         });
-        if (res.ok) {
-          status.className = 'text-sm rounded-lg p-3.5 bg-amber-500/10 text-amber-800 border border-amber-300/60';
-          status.textContent = '의뢰 접수되었습니다. 검토 후 회신드리겠습니다.';
-          this.reset();
-        } else {
-          throw new Error();
-        }
-      } catch {
-        status.className = 'text-sm rounded-lg p-3.5 bg-red-500/10 text-red-400 border border-red-500/20';
+        if (!res.ok) throw new Error('submit_failed');
+        const body = await res.json();
+        if (!body.ticket) throw new Error('no_ticket');
+        __contactTicket = body.ticket;
+
+        this.querySelectorAll('input, textarea').forEach(el => el.setAttribute('readonly', 'readonly'));
+        this.querySelectorAll('select').forEach(el => el.setAttribute('disabled', 'disabled'));
+        btn.innerHTML = '✓ 접수 완료';
+
+        status.className = 'rounded-xl border p-5 sm:p-6 mb-5 shadow-md bg-amber-50 border-amber-300 text-amber-900';
+        status.innerHTML = '<div class="text-base font-semibold mb-2">접수가 완료되었습니다.</div><div class="text-sm leading-relaxed">순차적으로 연락드릴 수 있도록 하겠습니다.<br>만약 정확한 견적을 원하신다면 아래 추가 정보를 미리 보내주세요.</div>';
+        status.classList.remove('hidden');
+
+        document.getElementById('contact-extend-form').classList.remove('hidden');
+        setTimeout(() => status.scrollIntoView({ behavior: 'smooth', block: 'center' }), 250);
+      } catch (err) {
+        btn.disabled = false;
+        btn.classList.remove('opacity-60', 'cursor-not-allowed');
+        status.className = 'rounded-xl border p-5 sm:p-6 mb-5 shadow-md text-sm bg-red-500/10 text-red-700 border border-red-300/60';
         status.textContent = '전송 중 오류가 발생했습니다. 카카오톡으로 직접 문의해 주세요.';
+        status.classList.remove('hidden');
+      }
+    });
+
+    document.getElementById('contact-extend-form').addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const status = document.getElementById('form-status');
+      if (!__contactTicket) {
+        status.className = 'rounded-xl border p-5 sm:p-6 mb-5 shadow-md text-sm bg-red-500/10 text-red-700 border border-red-300/60';
+        status.textContent = '추가 정보 세션이 만료되었습니다. 카카오톡으로 직접 문의해 주세요.';
+        status.classList.remove('hidden');
+        return;
+      }
+      const data = new FormData(this);
+      const sections = [
+        ['사업/서비스 소개', data.get('q_business')],
+        ['의뢰 목적', data.get('q_purpose')],
+        ['타겟 고객', data.get('q_target')],
+        ['희망 기능', data.get('q_features')],
+        ['보유 자료', data.get('q_assets')],
+        ['참고 사이트', data.get('q_refs')],
+        ['희망 일정', data.get('q_schedule')],
+        ['기타 요청사항', data.get('q_extra')]
+      ];
+      const extra = sections
+        .map(([k, v]) => [k, (v || '').trim()])
+        .filter(([_, v]) => v.length > 0)
+        .map(([k, v]) => `${k}\n${v}`)
+        .join('\n\n');
+
+      if (!extra) {
+        status.className = 'rounded-xl border p-5 sm:p-6 mb-5 shadow-md text-sm bg-stone-100 text-stone-700 border border-stone-200';
+        status.textContent = '아직 추가로 적어 주신 내용이 없습니다. 한 항목이라도 채워 주시면 더 정확한 견적을 드릴 수 있어요.';
+        status.classList.remove('hidden');
+        return;
       }
 
-      status.classList.remove('hidden');
-      setTimeout(() => status.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 100);
+      const btn = this.querySelector('button[type=submit]');
+      btn.disabled = true;
+      btn.classList.add('opacity-60', 'cursor-not-allowed');
+
+      try {
+        const res = await fetch('/api/contact/extend', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ ticket: __contactTicket, message: extra })
+        });
+        if (!res.ok) throw new Error('extend_failed');
+
+        this.querySelectorAll('input, textarea').forEach(el => el.setAttribute('readonly', 'readonly'));
+        btn.innerHTML = '✓ 전송 완료';
+        __contactTicket = null;
+
+        status.className = 'rounded-xl border p-5 sm:p-6 mb-5 shadow-md text-sm bg-emerald-500/10 text-emerald-800 border border-emerald-300/60';
+        status.textContent = '추가 정보까지 받았습니다. 빠른 시간 안에 회신드리겠습니다.';
+        status.classList.remove('hidden');
+      } catch (err) {
+        btn.disabled = false;
+        btn.classList.remove('opacity-60', 'cursor-not-allowed');
+        status.className = 'rounded-xl border p-5 sm:p-6 mb-5 shadow-md text-sm bg-red-500/10 text-red-700 border border-red-300/60';
+        status.textContent = '추가 정보 전송 중 오류가 발생했습니다. 카카오톡으로 직접 문의해 주세요.';
+        status.classList.remove('hidden');
+      }
     });
 
     // AURA thumbnail scale - keeps 400×300 content fitted to actual thumbnail width
