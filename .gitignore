@@ -17,6 +17,7 @@ Thumbs.db
 /orbin
 /service
 /tempo_society
+/note
 
 # Node deps
 node_modules/
